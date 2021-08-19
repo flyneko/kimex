@@ -1,0 +1,135 @@
+/*
+  SASS variables are information about icon's compiled state, stored under its original file name
+
+  .icon-home
+    width: $icon-home-width
+
+  The large array-like variables contain all information about a single icon
+  $icon-home: x y offset_x offset_y width height total_width total_height image_path
+  */
+$sprite-image: '../img/'
+$man-banner-x: 0px
+$man-banner-y: 0px
+$man-banner-offset-x: 0px
+$man-banner-offset-y: 0px
+$man-banner-width: 592px
+$man-banner-height: 504px
+$man-banner-total-width: 1184px
+$man-banner-total-height: 560px
+$man-banner-image: '../img/spritesheet.png'
+$man-banner: 0px 0px 0px 0px 592px 504px 1184px 560px '../img/spritesheet.png'
+$mastercard-x: 80px
+$mastercard-y: 528px
+$mastercard-offset-x: -80px
+$mastercard-offset-y: -528px
+$mastercard-width: 54px
+$mastercard-height: 32px
+$mastercard-total-width: 1184px
+$mastercard-total-height: 560px
+$mastercard-image: '../img/spritesheet.png'
+$mastercard: 80px 528px -80px -528px 54px 32px 1184px 560px '../img/spritesheet.png'
+$paybox-x: 0px
+$paybox-y: 528px
+$paybox-offset-x: 0px
+$paybox-offset-y: -528px
+$paybox-width: 80px
+$paybox-height: 32px
+$paybox-total-width: 1184px
+$paybox-total-height: 560px
+$paybox-image: '../img/spritesheet.png'
+$paybox: 0px 528px 0px -528px 80px 32px 1184px 560px '../img/spritesheet.png'
+$visa-x: 162px
+$visa-y: 504px
+$visa-offset-x: -162px
+$visa-offset-y: -504px
+$visa-width: 66px
+$visa-height: 22px
+$visa-total-width: 1184px
+$visa-total-height: 560px
+$visa-image: '../img/spritesheet.png'
+$visa: 162px 504px -162px -504px 66px 22px 1184px 560px '../img/spritesheet.png'
+$women-banner-x: 592px
+$women-banner-y: 0px
+$women-banner-offset-x: -592px
+$women-banner-offset-y: 0px
+$women-banner-width: 592px
+$women-banner-height: 504px
+$women-banner-total-width: 1184px
+$women-banner-total-height: 560px
+$women-banner-image: '../img/spritesheet.png'
+$women-banner: 592px 0px -592px 0px 592px 504px 1184px 560px '../img/spritesheet.png'
+$zoodpay-x: 0px
+$zoodpay-y: 504px
+$zoodpay-offset-x: 0px
+$zoodpay-offset-y: -504px
+$zoodpay-width: 162px
+$zoodpay-height: 24px
+$zoodpay-total-width: 1184px
+$zoodpay-total-height: 560px
+$zoodpay-image: '../img/spritesheet.png'
+$zoodpay: 0px 504px 0px -504px 162px 24px 1184px 560px '../img/spritesheet.png'
+
+/*
+  The provided mixins are intended to be used with the array-like variables
+
+  .icon-home
+    @include sprite-width($icon-home)
+
+  .icon-email
+    @include sprite($icon-email)
+  */
+@mixin sprite-width($sprite)
+  width: nth($sprite, 5)
+
+@mixin sprite-height($sprite)
+  height: nth($sprite, 6)
+
+@mixin sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+@function str-replace($string, $search, $replace: '')
+  $index: str-index($string, $search)
+  @if $index
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  @return $string
+
+@mixin sprite-image($sprite)
+  $random: random(999999999)
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image}?#{$random})
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+    background-image: url(#{str-replace($sprite-image, '.png', '')}@2x.png?#{$random})
+
+@mixin sprite($sprite)
+  @include sprite-image($sprite)
+  @include sprite-position($sprite)
+  @include sprite-width($sprite)
+  @include sprite-height($sprite)
+
+.picon
+  display: inline-block
+  vertical-align: middle
+  line-height: 1
+  font-size: 0
+  position: relative
+  top: -1px
+.picon-man-banner
+  +sprite($man-banner)
+  background-size: 1184px 560px
+.picon-mastercard
+  +sprite($mastercard)
+  background-size: 1184px 560px
+.picon-paybox
+  +sprite($paybox)
+  background-size: 1184px 560px
+.picon-visa
+  +sprite($visa)
+  background-size: 1184px 560px
+.picon-women-banner
+  +sprite($women-banner)
+  background-size: 1184px 560px
+.picon-zoodpay
+  +sprite($zoodpay)
+  background-size: 1184px 560px

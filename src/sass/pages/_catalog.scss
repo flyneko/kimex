@@ -1,0 +1,201 @@
+.cataloge{
+    &__inner{
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__page{
+        max-width: 966px;
+        width: 100%;
+        text-align: center;
+    }
+    &__page-nav{
+        display: flex;
+        justify-content: center;
+    }
+    &-page__all-goods{
+        margin-bottom: 77px;
+    }
+
+    &-page__all-goods{
+        span{
+            color: $text-main;
+            font-weight: 600;
+        }
+    }
+}
+
+.aside{
+    font-weight: 600;
+    color: $text-main;
+    margin-bottom: 50px;
+    &__item{
+        & + &{
+            margin-top: 18px;
+        }
+    }
+    &__link{
+        padding-bottom: 8px;
+        text-transform: uppercase;
+        &--sale{
+            color: $active;
+            &:before{
+                background-color: $active;
+            }
+            &:hover{
+                color: $active;
+            }
+        }
+        span{
+            margin-left: 5px;
+            color: $text-light;
+            font-size: 9px;
+            line-height: 9px;
+        }
+    }
+}
+
+.select2-search--dropdown {
+    margin-top: 23px;
+}
+
+.select-dropdown__no-search{
+    transform: translateY(23px);
+}
+
+.page-filter{
+    color: $text-main;
+    &__top{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    &__title{
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 22px;
+        margin-top: 23px;
+        text-align: left;
+        text-transform: uppercase;
+    }
+    &__top-right{
+        text-align: right;
+        .select2-results{
+            margin-top: -50px;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            color: #000000;
+            height: 37px;
+            line-height: 37px;
+            padding-right: 12px;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__arrow b{
+            margin-top: 5.5px;
+        }
+        .select2-container .select2-dropdown{
+            .select2-search .select2-search--dropdown{
+                display: none !important;
+            }
+        }
+        .select-dropdown__no-search{
+            transform: translateY(0);
+        }
+    }
+    &__results{
+        font-size: 11px;
+        line-height: 11px;
+        color: $text-light;
+        margin-bottom: 17px;
+    }
+    &__order{
+        padding-left: 15px;
+    }
+    &__bottom{
+        display: flex;
+        font-size: 14px;
+        line-height: 14px;
+        padding: 22px 0;
+        border-top: 1px solid $anothergray;
+        border-bottom: 1px solid $anothergray;
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            padding-right: 13px;
+            padding-left: 15px;
+        }
+        .select2 .selection .select2-selection--single .select2-selection__rendered {
+            color: #000 !important;
+        }
+    }
+    &__list{
+        display: flex;
+    }
+    &__item{
+        & + &{
+            margin-left: 23px;
+        }
+    }
+    &__label{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        margin-left: 54px;
+        
+    }
+    &__clear{
+        font-size: 12px;
+        margin-right: 0;
+        margin-left: auto;
+        border: none;
+        background-color: transparent;
+        color: $text-light;
+        cursor: pointer;
+        transition: color .4s;
+        &:hover{
+            color: $text-main;
+        }
+    }
+}
+
+.cataloge__cards{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 24px -16px 38px;
+    position: relative;
+    &:after{
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: calc(100% - 32px);
+        bottom: 0;
+        left: 16px;
+        background-color: $anothergray;
+    }
+    .card{
+        width: calc(25% - 32px);
+        margin: 0 16px 32px;
+        min-height: 430px;
+        &__discount,
+        &__new{
+            width: 40px;
+            height: 40px;
+            top: 8px;
+            left: 9px;
+        }
+        &__discount{
+            font-size: 12px;
+            line-height: 12px;
+            font-weight: 500;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+@import '_media.scss';

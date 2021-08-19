@@ -1,0 +1,38 @@
+
+include ../_mixins.pug
+
+doctype html
+html
+    head
+        title #{title}
+        meta(charset="utf-8")
+        meta(
+            name="viewport",
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui"
+        )
+        meta(
+            name="mobile-web-app-capable",
+            content="yes"
+        )
+        meta(name="format-detection", content="telephone=no")
+        meta(name="format-detection", content="address=no")
+        link(
+            rel='stylesheet', 
+            type='text/css',
+            href='assets/css/vendors.min.css'
+        )
+        link(
+            rel='stylesheet', 
+            type='text/css',
+            href='assets/css/app.css'
+        )
+
+    body
+    
+        include ../components/_header-lined.pug  
+
+        block content
+
+        include ../components/_footer.pug
+
+        include ../components/_scripts.pug

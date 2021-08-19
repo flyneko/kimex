@@ -1,0 +1,32 @@
+{
+  "jquery": [
+    "dist/jquery.min.js"
+  ],
+  "air-datepicker": [
+    "dist/js/datepicker.min.js",
+    "dist/css/datepicker.min.css"
+  ],
+  "icheck": [
+    "icheck.min.js",
+    "skins/minimal/minimal.css"
+  ],
+  "@fancyapps/fancybox": [
+    "dist/jquery.fancybox.min.js",
+    "dist/jquery.fancybox.min.css"
+  ],
+  "swiper": [
+    "swiper-bundle.min.js",
+    "swiper.min.css"
+  ],
+  "select2": [
+    "dist/js/select2.min.js",
+    "dist/js/i18n/ru.js"
+  ],
+  "jquery-mask-plugin": [
+    "dist/jquery.mask.min.js"
+  ],
+  "ion-rangeslider": [
+    "js/ion.rangeSlider.min.js",
+    "css/ion.rangeSlider.css"
+  ]
+}
