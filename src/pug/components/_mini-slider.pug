@@ -7,11 +7,8 @@ a.card.card--haveDiscount.swiper-slide(
                     span.card__top
                         span.card__discount 70%
                         span.card__like
-                            svg
-                                use(
-                                    xlink:href="temp/sprites/sprite.svg#save"
-                                )
-                        img(src='temp/lorem/novelty-week-1.jpg')
+                            +icon('save')
+                        img(src='temp/novelty-week-1.jpg')
                     span.card__title
                         | Isabel Marant 
                     span.card__descr
@@ -21,10 +18,7 @@ a.card.card--haveDiscount.swiper-slide(
                         | 29 995 ₸
                     span.card__hover-panel
                         span.card__cart
-                            svg.icon.icon-cart
-                                use(
-                                    xlink:href="temp/sprites/sprite.svg#cart"
-                                )
+                            +icon('cart')
                         span.card__quick(data-fancybox data-src="#card-modal-1") Быстрый просмотр
 a.card.card--haveDiscount.swiper-slide(
                 href='#'
@@ -33,11 +27,8 @@ a.card.card--haveDiscount.swiper-slide(
                     span.card__top
                         span.card__discount 70%
                         span.card__like
-                            svg
-                                use(
-                                    xlink:href="temp/sprites/sprite.svg#save"
-                                )
-                        img(src='temp/lorem/novelty-week-2.jpg')
+                            +icon('save')
+                        img(src='temp/novelty-week-2.jpg')
                     span.card__title
                         | Valentino
                     span.card__descr
@@ -47,10 +38,7 @@ a.card.card--haveDiscount.swiper-slide(
                         | 32 995 ₸
                     span.card__hover-panel
                         span.card__cart
-                            svg.icon.icon-cart
-                                use(
-                                    xlink:href="temp/sprites/sprite.svg#cart"
-                                )
+                            +icon('cart')
                         span.card__quick(data-fancybox data-src="#card-modal-1") Быстрый просмотр
 a.card.card--haveDiscount.swiper-slide(
                 href='#'
@@ -59,11 +47,8 @@ a.card.card--haveDiscount.swiper-slide(
                     span.card__top
                         span.card__discount 70%
                         span.card__like
-                            svg
-                                use(
-                                    xlink:href="temp/sprites/sprite.svg#save"
-                                )
-                        img(src='temp/lorem/novelty-week-1.jpg')
+                            +icon('save')
+                        img(src='temp/novelty-week-1.jpg')
                     span.card__title
                         | Isabel Marant 
                     span.card__descr
@@ -73,10 +58,7 @@ a.card.card--haveDiscount.swiper-slide(
                         | 29 995 ₸
                     span.card__hover-panel
                         span.card__cart
-                            svg.icon.icon-cart
-                                use(
-                                    xlink:href="temp/sprites/sprite.svg#cart"
-                                )
+                            +icon('cart')
                         span.card__quick(data-fancybox data-src="#card-modal-1") Быстрый просмотр
 a.card.card--haveDiscount.swiper-slide(
                 href='#'
@@ -85,11 +67,8 @@ a.card.card--haveDiscount.swiper-slide(
                     span.card__top
                         span.card__discount 70%
                         span.card__like
-                            svg
-                                use(
-                                    xlink:href="temp/sprites/sprite.svg#save"
-                                )
-                        img(src='temp/lorem/novelty-week-2.jpg')
+                            +icon('save')
+                        img(src='temp/novelty-week-2.jpg')
                     span.card__title
                         | Valentino
                     span.card__descr
@@ -99,10 +78,7 @@ a.card.card--haveDiscount.swiper-slide(
                         | 32 995 ₸
                     span.card__hover-panel
                         span.card__cart
-                            svg.icon.icon-cart
-                                use(
-                                    xlink:href="temp/sprites/sprite.svg#cart"
-                                )
+                            +icon('cart')
                         span.card__quick(data-fancybox data-src="#card-modal-1") Быстрый просмотр
 a.card.card--haveDiscount.swiper-slide(
                 href='#'
@@ -111,11 +87,8 @@ a.card.card--haveDiscount.swiper-slide(
                     span.card__top
                         span.card__discount 70%
                         span.card__like
-                            svg
-                                use(
-                                    xlink:href="temp/sprites/sprite.svg#save"
-                                )
-                        img(src='temp/lorem/novelty-week-2.jpg')
+                            +icon('save')
+                        img(src='temp/novelty-week-2.jpg')
                     span.card__title
                         | Valentino
                     span.card__descr
@@ -125,13 +98,9 @@ a.card.card--haveDiscount.swiper-slide(
                         | 32 995 ₸
                     span.card__hover-panel
                         span.card__cart
-                            svg.icon.icon-cart
-                                use(
-                                    xlink:href="temp/sprites/sprite.svg#cart"
-                                )
+                            +icon('cart')
                         span.card__quick(data-fancybox data-src="#card-modal-1") Быстрый просмотр
 .card-modal.card-modal--haveDiscount.modal-parent(
-        style="position:absolute; left:-5000px;"
         id='card-modal-1'
     )
     .card-modal__inner.modal-inner
@@ -139,11 +108,11 @@ a.card.card--haveDiscount.swiper-slide(
             .slider.slider--card-modal.swiper-container
                 .swiper-wrapper
                     .swiper-slide
-                        img(src="temp/lorem/preview-1.jpg")
+                        img(src="temp/preview-1.jpg")
                     .swiper-slide
-                        img(src="temp/lorem/preview-1.jpg")
+                        img(src="temp/preview-1.jpg")
                     .swiper-slide
-                        img(src="temp/lorem/preview-1.jpg")
+                        img(src="temp/preview-1.jpg")
             .arrow-prev
             .arrow-next
         .card-modal__right
@@ -170,15 +139,9 @@ a.card.card--haveDiscount.swiper-slide(
             .card-modal__buttons
                 button.card__cart-btn.btn добавить в корзину
                 span.card__like
-                    svg.icon.icon-save
-                        use(
-                            xlink:href="temp/sprites/sprite.svg#save"
-                        )
+                    +icon('save')
             a.card-modal__link(href='#')
-                svg.icon.icon-box
-                    use(
-                        xlink:href="temp/sprites/sprite.svg#box"
-                    )
+                +icon('box')
                 span.link Проверить наличие в магазине
 |           </div>
 |       </div>

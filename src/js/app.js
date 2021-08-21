@@ -1,9 +1,17 @@
 $(function () {
-    // Хедер
+    $.extend($.fancybox.defaults, {
+        smallBtn: true,
+        btnTpl: {
+            smallBtn: '<button data-fancybox-close class="fancybox-button fancybox-button--close"><svg class="icon icon-x"><use xlink:href="assets/img/sprite.svg#icon-x"></use></svg></button>',
+        },
+        touch: false
+    })
 
-    $('.select').select2({
+    // Хедер
+    $('.select--language').select2({
         dropdownAutoWidth : true,
         inputAutoWidth : true,
+        dropdownCssClass: "select-dropdown__language",
     });
 
     $('.select--no-search').select2({
@@ -11,6 +19,14 @@ $(function () {
         inputAutoWidth : true,
         minimumResultsForSearch: -1,
         dropdownCssClass: "select-dropdown__no-search",
+    });
+
+    $('.select-filter--multiple').select2({
+        dropdownAutoWidth : true,
+        inputAutoWidth : true,
+        selectionCssClass: 'select-dropdown__filter--multiple-select',
+        dropdownCssClass: "select-dropdown__filter--multiple",
+        closeOnSelect: false,
     });
 
     $('.select-price').select2({
@@ -32,11 +48,6 @@ $(function () {
     $(".page-filter__price").ionRangeSlider();
 
     $('[data-fancybox]').fancybox({
-        smallBtn: true,
-        btnTpl: {
-            smallBtn: '<button data-fancybox-close class="fancybox-button fancybox-button--close"><svg class="icon icon-x"><use xlink:href="temp/sprites/sprite.svg#x"></use></svg></button>',
-        },
-        touch: false,
         afterShow: function() {
             const cardModalSlider = new Swiper('.slider--card-modal', {
                 loop: true,
@@ -50,11 +61,6 @@ $(function () {
     });
 
     $(".header__join a").fancybox({
-        smallBtn: true,
-        btnTpl: {
-            smallBtn: '<button data-fancybox-close class="fancybox-button fancybox-button--close"><svg class="icon icon-x"><use xlink:href="temp/sprites/sprite.svg#x"></use></svg></button>',
-        },
-        touch: false,
         'beforeLoad' : function(){
             $('body').addClass('modal--darker');
         },
@@ -288,4 +294,13 @@ $(function () {
     });
 
     // cart
+
+    const sliderCard = new Swiper('.slider-card', {
+        loop: true,
+        slidesPerView: 1,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
 });

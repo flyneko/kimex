@@ -32,10 +32,7 @@ div.join-modal(
                     label.label.label--important 
                         span Дата рождения
                         input.input.input--small.datepicker-here#register-data(type='text' required data-language='ru')
-                        svg.icon.icon-calendar
-                            use(
-                                xlink:href="temp/sprites/sprite.svg#calendar"
-                            )
+                        +icon('calendar')
                     label.label.label--important 
                         span Город
                         input.input.input--small(required type='text')
@@ -48,24 +45,12 @@ div.join-modal(
                     label.label.label--important 
                         span Пароль
                         input.input.input--small(required type='password')
-                        svg.icon.icon-password.icon-hidden
-                            use(
-                                xlink:href="temp/sprites/sprite.svg#password-hidden"
-                            )
-                        svg.icon.icon-password.icon-visible
-                            use(
-                                xlink:href="temp/sprites/sprite.svg#password-visible"
-                            )
+                        +icon('password-visible', 'icon-password icon-hidden')
+                        +icon('password-hidden', 'icon-password icon-visible')
                     label.label.label--important 
                         span Повторите пароль
                         input.input.input--small(required type='password')
-                        svg.icon.icon-password.icon-hidden
-                            use(
-                                xlink:href="temp/sprites/sprite.svg#password-hidden"
-                            )
-                        svg.icon.icon-password.icon-visible
-                            use(
-                                xlink:href="temp/sprites/sprite.svg#password-visible"
-                            )
+                        +icon('password-visible', 'icon-password icon-hidden')
+                        +icon('password-hidden', 'icon-password icon-visible')
                     .join-modal__actions
                         button.btn(type='submit') зарегистрироваться

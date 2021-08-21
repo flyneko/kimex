@@ -1,3 +1,6 @@
-mixin icon(name)
-    svg(class="icon icon-#{name}")
-        use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="./assets/img/sprite.svg#icon-#{name}")
+mixin icon(name, className = '')
+    svg(class='icon icon-' + name + ' ' + className) 
+        use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="./assets/img/sprite.svg#icon-" + name)
+
+mixin picon(name)
+    span(class='picon picon-' + name)

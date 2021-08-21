@@ -1,4 +1,6 @@
 extends layouts/_layout.pug
+block title 
+    |    Корзина
 
 block content 
     section.cart
@@ -8,18 +10,12 @@ block content
                     .cart__left
                         .card-cart
                             span.card__like
-                                svg
-                                    use(
-                                        xlink:href="temp/sprites/sprite.svg#save"
-                                    )
+                                +icon('save')
                             span.card-cart__bin
-                                svg
-                                    use(
-                                        xlink:href="temp/sprites/sprite.svg#bin"
-                                    )
+                                +icon('bin')
                             .card-cart__left
                                 a.card-cart__imgwrapper(href='#')
-                                    img(src='temp/lorem/novelty-week-3.jpg')
+                                    img(src='temp/novelty-week-3.jpg')
                                 .card-cart__info
                                     p.card-cart__title Valentino Garavani
                                     p.card-cart__descr Сумка на плечо
@@ -39,18 +35,12 @@ block content
                                         span.card-cart__price--discount &nbsp; -50%
                         .card-cart.card-cart--show-size
                             span.card__like
-                                svg
-                                    use(
-                                        xlink:href="temp/sprites/sprite.svg#save"
-                                    )
+                                +icon('save')
                             span.card-cart__bin
-                                svg
-                                    use(
-                                        xlink:href="temp/sprites/sprite.svg#bin"
-                                    )
+                                +icon('bin')
                             .card-cart__left
                                 a.card-cart__imgwrapper(href='#')
-                                    img(src='temp/lorem/novelty-week-2.jpg')
+                                    img(src='temp/novelty-week-2.jpg')
                                 .card-cart__info
                                     p.card-cart__title Valentino
                                     p.card-cart__descr Укороченные расклешенные брюки
@@ -70,18 +60,12 @@ block content
                                         span.card-cart__price--discount &nbsp; -64%
                         .card-cart
                             span.card__like
-                                svg
-                                    use(
-                                        xlink:href="temp/sprites/sprite.svg#save"
-                                    )
+                                +icon('save')
                             span.card-cart__bin
-                                svg
-                                    use(
-                                        xlink:href="temp/sprites/sprite.svg#bin"
-                                    )
+                                +icon('bin')
                             .card-cart__left
                                 a.card-cart__imgwrapper(href='#')
-                                    img(src='temp/lorem/novelty-week-3.jpg')
+                                    img(src='temp/novelty-week-3.jpg')
                                 .card-cart__info
                                     p.card-cart__title Valentino Garavani
                                     p.card-cart__descr Сумка на плечо

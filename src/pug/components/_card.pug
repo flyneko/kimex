@@ -4,11 +4,8 @@ a.card.card--haveDiscount.swiper-slide(
     span.card__top
         span.card__discount 70%
         span.card__like
-            svg
-                use(
-                    xlink:href="temp/sprites/sprite.svg#save"
-                )
-        img(src='temp/lorem/novelty-week-2.jpg')
+            +icon('save')
+        img(src='temp/novelty-week-2.jpg')
     span.card__title
         | Valentino
     span.card__descr

@@ -6,10 +6,6 @@
     "dist/js/datepicker.min.js",
     "dist/css/datepicker.min.css"
   ],
-  "icheck": [
-    "icheck.min.js",
-    "skins/minimal/minimal.css"
-  ],
   "@fancyapps/fancybox": [
     "dist/jquery.fancybox.min.js",
     "dist/jquery.fancybox.min.css"
@@ -20,7 +16,8 @@
   ],
   "select2": [
     "dist/js/select2.min.js",
-    "dist/js/i18n/ru.js"
+    "dist/js/i18n/ru.js",
+    "dist/css/select2.min.css"
   ],
   "jquery-mask-plugin": [
     "dist/jquery.mask.min.js"

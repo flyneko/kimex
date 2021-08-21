@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "iconfont";
+  src: url('../fonts/iconfont/iconfont.woff2?806520112') format('woff2'),
+       url('../fonts/iconfont/iconfont.woff?806520112') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$ticon-arrow: "\EA01";
+
+
+%ticon {
+  font-family: "iconfont";
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: auto;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ticon {
+  @extend %ticon;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ticon-arrow:before { content: $ticon-arrow; }

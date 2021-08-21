@@ -14,7 +14,7 @@ const fontProps = {
 };
 
 gulp.task('iconfont', function(done) {
-    const iconStream = gulp.src([config.src.svgFontIcons + '/*.svg'])
+    const iconStream = gulp.src([config.src.svgFont + '/*.svg'])
         .pipe(iconfont({
             fontName: fontProps.fontName,
             formats: ['woff', 'woff2'],
@@ -32,12 +32,7 @@ gulp.task('iconfont', function(done) {
                 const props = {...fontProps, glyphs};
                 gulp.src(__dirname + '/_iconfont.scss')
                     .pipe(consolidate('lodash', props))
-                    .pipe(gulp.dest(config.src.sassGen))
-                    .on('finish', () => {
-                        gulp.src(__dirname + '/_iconfont-utils.scss')
-                            .pipe(consolidate('lodash', props))
-                            .pipe(gulp.dest(config.src.sassGen));
-                    });
+                    .pipe(gulp.dest(config.src.sassGen));
             })
             .on('finish', cb);
         },

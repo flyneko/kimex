@@ -79,11 +79,20 @@ gulp.task('copy:svg', function(done) {
     done();
 });
 
-gulp.task('copy', gulp.series('copy:img', 'copy:svg', 'copy:fonts', 'copy:js', 'copy:libs'));
+gulp.task('copy:temp', function(done) {
+    gulp
+        .src(config.src.temp + '/**/*.*')
+        .pipe(gulp.dest(config.dest.temp));
+
+    done();
+});
+
+gulp.task('copy', gulp.series('copy:img', 'copy:svg', 'copy:fonts', 'copy:js', 'copy:libs', 'copy:temp'));
 
 gulp.task('copy:watch', function() {
     gulp.watch(config.src.svgIcons + '/*.svg', gulp.series('copy:svg'));
     gulp.watch(config.src.img + '/**/*.*', gulp.series('copy:img'));
     gulp.watch(config.src.js + '/**/*.*', gulp.series('copy:js'));
     gulp.watch(config.src.root + '/vendors.json', gulp.series('copy:libs'));
+    gulp.watch(config.src.temp + '/**/*.*', gulp.series('copy:temp'));
 });
