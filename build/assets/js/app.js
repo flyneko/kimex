@@ -7,7 +7,7 @@ $(function () {
         touch: false
     })
 
-    // Хедер
+    
     $('.select--language').select2({
         dropdownAutoWidth : true,
         inputAutoWidth : true,
@@ -21,21 +21,90 @@ $(function () {
         dropdownCssClass: "select-dropdown__no-search",
     });
 
+    // Multiple choices
+
+    function formatStateDropdown (state) {
+        if (!state.id) {
+        return state.text;
+        }
+        var icon = "assets/img/sprite.svg#icon-check";
+        var $state = $(
+        '<span><svg class="icon icon-check"><use xlink:href="' + icon + '"></use></svg>' + state.text + '</span>'
+        );
+        return $state;
+    };
+
     $('.select-filter--multiple').select2({
         dropdownAutoWidth : true,
         inputAutoWidth : true,
         selectionCssClass: 'select-dropdown__filter--multiple-select',
         dropdownCssClass: "select-dropdown__filter--multiple",
         closeOnSelect: false,
+        templateResult: formatStateDropdown,
     });
+
+    $('.select-filter--multiple').on('change', function(){
+        let selectedItemsLenght = $(this).select2('data').length
+        selectedItemsLenght -= 1
+        let needNumber = $(this).siblings('.page-filter__item-number')
+
+        if (selectedItemsLenght === 0){
+            needNumber.addClass('page-filter__item-number--hidden')
+        } else{
+            needNumber.removeClass('page-filter__item-number--hidden')
+        }
+        needNumber.text(selectedItemsLenght)
+    });
+
+    // Multiple choices
+
+    function formatStateColor (state) {
+    if (!state.id) {
+        return state.text;
+    }
+
+    let optionText = state.text.slice(0, -8)
+    let colorCode = state.text.slice(-8);
+
+    var icon = "assets/sprites/sprite.svg#check";
+        var $state = $(
+            '<span class="page-filter__select-option--color" style="background-color:' + colorCode + '"></span>' +
+            '<span><svg class="icon icon-check"><use xlink:href="' + icon + '"></use></svg>' + optionText + '</span>'
+        );
+    return $state;
+    };
+
+    $('.select-color').select2({
+        dropdownAutoWidth : true,
+        inputAutoWidth : true,
+        selectionCssClass: 'select-dropdown__filter--multiple-select',
+        dropdownCssClass: "select-dropdown__filter--multiple",
+        closeOnSelect: false,
+        templateResult: formatStateColor,
+    });
+
+    function formatStatePrice (state) {
+        if (!state.id) {
+        return state.text;
+        }
+        let $state = $(
+        '<input type="text" class="page-filter__price">'
+        );
+
+        return $state;
+    };
 
     $('.select-price').select2({
         dropdownAutoWidth : true,
         inputAutoWidth : true,
         minimumResultsForSearch: -1,
         closeOnSelect: false,
-        // dropdownCssClass: "select-dropdown__no-search",
+        templateResult: formatStatePrice,
     });
+
+    // $('.select-price').on('select2:open', function(){
+        
+    // });
 
     $('.header__search-input').on('keyup', function(){
         $('.header__search-wrapper').addClass('header__search-wrapper--active')
@@ -44,8 +113,6 @@ $(function () {
     $('.header__search-input').on('blur', function(){
         $('.header__search-wrapper').removeClass('header__search-wrapper--active')
     });
-
-    $(".page-filter__price").ionRangeSlider();
 
     $('[data-fancybox]').fancybox({
         afterShow: function() {
@@ -247,7 +314,7 @@ $(function () {
         e.preventDefault();
 
         $($(this).siblings()).removeClass('tab--active active-line');
-        $($(this).closest('.tabs-wrapper').siblings().find('div')).removeClass('tabs-content--active');
+        $($(this).closest('.tabs-wrapper').siblings().find('.tabs-content')).removeClass('tabs-content--active');
 
         $(this).addClass('tab--active active-line');
         $($(this).attr('href')).addClass('tabs-content--active');
@@ -302,5 +369,57 @@ $(function () {
             el: '.swiper-pagination',
             clickable: true,
         },
+    });
+
+    // Card-up
+
+    const cardUpNavigation = new Swiper('.card-up__navigation', {
+        navigation: {
+            nextEl: '#card-up-navigation-next',
+            prevEl: '#card-up-navigation-prev',
+        },
+        slidesPerView: 4,
+        spaceBetween: 16,
+        direction: 'vertical',
+        watchSlidesVisibility: true,
+        mousewheel: true,
+        allowTouchMove: false,
+        touchRatio: 5,
+    });
+
+    cardUpNavigation.on('slideChange', function(){
+        console.log(cardUpNavigation.activeIndex)
+    });
+
+    const cardUpMain = new Swiper('.card-up__big', {
+        slidesPerView: 'auto',
+        navigation: {
+            nextEl: '#card-up-navigation-next',
+            prevEl: '#card-up-navigation-prev',
+        },
+        thumbs: {
+            swiper: cardUpNavigation
+        },
+        mousewheel: true,
+    });
+
+    cardUpMain.on('slideChange', function(){
+        cardUpNavigation.allowNext()
+    });
+
+    cardUpMain.controller.control = cardUpNavigation;
+
+    $('.reviews__item-useful span').on('click', function(){
+        $(this).siblings().removeClass('reviews__item--marked')
+        $(this).toggleClass('reviews__item--marked')
+    });
+
+    $('.reviews__close').on('click', function(){
+        let closeWrapper = $('.reviews')
+        closeWrapper.toggleClass('reviews--hidden')
+        if (closeWrapper.hasClass('reviews--hidden')){
+            $(this).text('Показать все отзывы')
+        }
+        $(this).text('Свернуть все отзывы')
     });
 });

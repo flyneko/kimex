@@ -27,35 +27,58 @@
                     )
                         | Цена2
             li.page-filter__item
-                select.page-filter__select.select-filter--multiple(
+                span.page-filter__item-number.page-filter__item-number--hidden 0
+                select.page-filter__select.select-filter--multiple.select-color(
                     multiple="multiple"
-                    data-placeholder="Цвет"
                 )
-                    option 
-                        span(style='background-color: #e5d8d2;')             
-                        span Бежевый  
-                    option Цена3
+                    option(selected='selected') Цвет
+                    option Бежевый #e5d8d2 
+                    option Персиковый #ae8979
+                    option Серый #9d9f9e
+                    option Хаки #6c685a
+                    option Фиолетовый #6e6872
+                    option Светлосерый #a9adb8
+                    option Бежевый #e5d8d2 
+                    option Персиковый #ae8979
+                    option Серый #9d9f9e
+                    option Хаки #6c685a
+                    option Фиолетовый #6e6872
+                    option Светлосерый #a9adb8
             li.page-filter__item
+                span.page-filter__item-number.page-filter__item-number--hidden 0
                 select.page-filter__select.select-filter--multiple(
                     multiple="multiple"
-                    data-placeholder="Бренд"
-                    selection-css-class='select-filter--brand'
-                    data-dropdown-css-class='select-filter--brand-dropdown'
+                    selection-css-class='select-dropdown__filter--multiple-select select-filter--brand'
+                    data-dropdown-css-class='select-dropdown__filter--multiple select-filter--brand-dropdown'
                 )
-                    option Цена3
-                    option Цена3
+                    option(selected='selected') Бренд
+                    option BALENCIAGA
+                    option BALMAIN
+                    option BOTTEGA
+                    option VENETA
+                    option BRUNELLO
+                    option CUCINELLI
+                    option CELINE
+                    option CELINE
+                    option CELINE
+                    option CELINE
+                    option CELINE
+                    option CELINE
+                    option CELINE
             li.page-filter__item
+                span.page-filter__item-number.page-filter__item-number--hidden 0
                 select.page-filter__select.select-filter--multiple(
                     multiple="multiple"
-                    data-placeholder="Размер"
                 )
+                    option(selected='selected') Размер
                     option Цена2               
                     option Цена3
             li.page-filter__item
+                span.page-filter__item-number.page-filter__item-number--hidden 0
                 select.page-filter__select.select-filter--multiple(
                     multiple="multiple"
-                    data-placeholder="Тип"
                 )
+                    option(selected='selected') Тип
                     option Цена2               
                     option Цена3     
         label.label--have-checkbox.page-filter__label
