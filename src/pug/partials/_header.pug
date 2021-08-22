@@ -1,6 +1,6 @@
 | <header class="header header--lined">
 |     <div class="header__top">
-|         <div class="container">
+|         <div class="l-wrapper">
 |             <div class="header__top-inner">
 |                 <div class='header__location-wrapper'>
 +icon('pin', 'icon-middle')
@@ -24,7 +24,7 @@
 |         </div>
 |     </div>
 |     <div class="header__middle">
-|         <div class="container">
+|         <div class="l-wrapper">
 |             <div class="header__middle-wrapper">
 |                 <nav class="header__navigation">
 |                     <ul class="header__navigation-list">
@@ -53,7 +53,6 @@
 +icon('join', 'icon-middle')
 |                         <a class='hover-line hover-line--thin' data-fancybox data-src="#join-modal" id='login-trigger'>
 |                             Вход
-include ../components/_join-modal.pug
 |                         </a>
 |                         / 
 |                         <a class='hover-line hover-line--thin' data-fancybox data-src="#join-modal" id='register-trigger'>
@@ -73,7 +72,7 @@ include ../components/_join-modal.pug
 |         </div>
 |     </div>
 |     <div class="header__bottom">
-|         <div class="container">
+|         <div class="l-wrapper">
 |             <div class="header__bottom-inner">
 |               <nav class="subnavigation subnavigation--header">
 |                   <ul class="subnavigation__list">
@@ -298,7 +297,12 @@ include ../components/_card-search.pug
 include ../components/_card-search.pug
 include ../components/_card-search.pug
 include ../components/_card-search.pug
-include ../components/_white-btn.pug
+a.btn.btn--white(href='#')
+    | показать все товары 
+    | (
+    span 1245
+    | )
+
 |                   </div>
 |               </div>
 |             </div>

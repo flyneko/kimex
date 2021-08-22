@@ -1,5 +1,6 @@
 
 include ../_mixins.pug
+include ../_chunks.pug
 
 doctype html
 html
@@ -15,6 +16,8 @@ html
         link(rel='stylesheet', type='text/css', href='assets/css/app.css')
 
     body
+        include ../modals/_auth.pug
+        include ../modals/_fast-view.pug
     
         include ../partials/_header.pug  
 

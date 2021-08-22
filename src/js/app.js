@@ -371,7 +371,7 @@ $(function () {
             nextEl: '#arrow-next--mini',
             prevEl: '#arrow-prev--mini',
         },
-        slidesPerView: 'auto',
+        slidesPerView: '2',
     });
 
     // const cardModalSlider = new Swiper('.slider--card-modal', {

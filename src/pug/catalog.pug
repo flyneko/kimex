@@ -3,12 +3,20 @@ block title
     |    Каталог
 block content 
     .cataloge
-        .container
-            .cataloge__inner
-                include components/_cataloge-aside.pug
-                .cataloge__page
+        .l-wrapper
+            .cataloge__inner.l-aside
+                aside.cataloge__aside.l-aside__aside.aside
+                    ul.aside__list
+                        each val, key in {'Вся одежда': '3256', 'SALE': '245', 'Блузка': '136', 'Брюки': '124', 'Водолазка': '567', 'Джинсы': '88', 'Дубленка': '24', 'Жилет': '124', 'Кардиган': '67', 'Куртка': '78', 'Пальто': '101', 'Парка': '86', 'Пиджак': '124', 'Платье': '456', 'Платье-Поло': '345', 'Плащ': '16', 'Пуловер': '79', 'Рубашка': '341', 'Свитер': '224', 'Свитшот': '124', 'Толстовка': '255', 'Футболка': '456', 'Шорты': '124', 'Шуба': '45', 'Юбка': '144'}
+                            li.aside__item
+                                a.aside__link.hover-line
+                                    | #{key}
+                                    span #{val}
+                .l-aside__content
                     include components/_cataloge-filters.pug
-                    include components/_cataloge-cards.pug
+                    .cataloge__cards
+                        each i in [0,1,2,3,4,0,1,2,3,4,0,1,2,3,4,0]
+                            +card(i)
                     nav.cataloge__page-nav.pagination
                         p.pagination__descr Страницы: &nbsp;
                         ul.pagination__list

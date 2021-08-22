@@ -1,10 +1,13 @@
 extends layouts/_layout.pug
+
 block title 
-    |    Оформление заказа
+    | Оформление заказа
 
 block content 
+    - var footer_light = true
+
     section.submit-order
-        .container
+        .l-wrapper
             h1.subtitle Оформление заказа
             .submit-cart.submit-order__block
                 .submit-cart__left

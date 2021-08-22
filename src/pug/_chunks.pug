@@ -1,0 +1,48 @@
+mixin card(index, options = {})
+    - 
+        var list = [
+            { name: 'Isabel Marant', desc: 'Розовый комбинезон Etundra', price: '29 995', price_old: '109 990' },
+            { name: 'Valentino', desc: 'Укороченные расклешенные брюки', price: '32 995', price_old: '65 990' },
+            { name: 'Valentino Garavani', desc: 'Сумка на плечо', price: '105 900' },
+            { name: 'Jordan', desc: 'Кроссовки <br> Air Jordan Union', price: '90 900', price_old: '125 900' },
+            { name: 'Acne Studios', desc: 'Серое <br> худи', price: '18 995', price_old: '77 990' }
+        ]
+    - var item = list[index || 0]
+    a(href='#', class="card " + (options.class || ''))
+        span.card__inner
+            span.card__top
+                if index % 2 == 0
+                    span.card__discount 70%
+                else 
+                    span.card__new
+                if index == 0 || index == 2 || index == 3
+                    ul.card__info
+                        if index == 0 
+                            li.card__info-item.card__info-item--pink promo
+                            li.card__info-item.card__info-item--blue exclusive online
+                        else if index == 2 
+                            li.card__info-item.card__info-item--brown рассрочка
+                        else 
+                            li.card__info-item.card__info-item--red promo code
+                span.card__like
+                    +icon('save')
+                span.slider-card.swiper-container
+                    span.swiper-wrapper
+                        .swiper-slide
+                            img(src='temp/novelty-week-' + (index + 1) + '.jpg')
+                        each i in [2,3,4]
+                            .swiper-slide
+                                img(src='temp/novelty-week-' + i + '.jpg')
+                    span.swiper-pagination
+            span.card__title
+                | #{item.name}
+            span.card__descr
+                | !{item.desc}
+            span.card__price
+                if item.price_old
+                    span.card__price--old #{item.price_old} ₸
+                | #{item.price} ₸
+            span.card__hover-panel
+                span.card__cart
+                    +icon('cart')
+                span.card__quick(data-fancybox data-src="#fast-view") Быстрый просмотр
