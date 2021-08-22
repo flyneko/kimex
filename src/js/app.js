@@ -5,9 +5,9 @@ $(function () {
             smallBtn: '<button data-fancybox-close class="fancybox-button fancybox-button--close"><svg class="icon icon-x"><use xlink:href="assets/img/sprite.svg#icon-x"></use></svg></button>',
         },
         touch: false
-    })
+    });
+    // Хедер
 
-    
     $('.select--language').select2({
         dropdownAutoWidth : true,
         inputAutoWidth : true,
@@ -66,7 +66,7 @@ $(function () {
     let optionText = state.text.slice(0, -8)
     let colorCode = state.text.slice(-8);
 
-    var icon = "assets/sprites/sprite.svg#check";
+    var icon = "assets/img/sprite.svg#icon-check";
         var $state = $(
             '<span class="page-filter__select-option--color" style="background-color:' + colorCode + '"></span>' +
             '<span><svg class="icon icon-check"><use xlink:href="' + icon + '"></use></svg>' + optionText + '</span>'
@@ -83,28 +83,111 @@ $(function () {
         templateResult: formatStateColor,
     });
 
-    function formatStatePrice (state) {
-        if (!state.id) {
-        return state.text;
+    // function formatStatePrice (state) {
+    //     if (!state.id) {
+    //       return state.text;
+    //     }
+    //     let $state = $(
+    //       '<input type="text" class="page-filter__price">'
+    //     );
+
+    //     return $state;
+    // };
+
+    // $('.select-price').select2({
+    //     dropdownAutoWidth : true,
+    //     inputAutoWidth : true,
+    //     minimumResultsForSearch: -1,
+    //     closeOnSelect: false,
+    //     templateResult: formatStatePrice,
+    // });
+
+    let inputFrom = $('.js-input-from');
+    let inputTo = $('.js-input-to');
+    let instance;
+    let min = 0;
+    let max = 135000;
+    let from = 10000;
+    let to = 125000;
+
+    $('.filter-price__input').ionRangeSlider({
+        onStart: updateInputs,
+        onChange: updateInputs
+    })
+    instance = $('.filter-price__input').data("ionRangeSlider");
+
+    function formatPriceView(value){
+        // let lenght = value.lenght
+        // let symbol = ' ₸'
+        // if (value < 1000){
+        //     return value + symbol
+        // } else if(value > 999 & value < 10000){
+        //     let firstPart = value.slice(0, -3)
+        //     let secondPart = value.slice(-3, -1)
+        //     return firstPart + ' ' + secondPart + symbol
+        // } else{
+        //     return value + symbol
+        // }
+        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+
+    function updateInputs (data) {
+        from = data.from;
+        to = data.to;
+        
+        // inputFrom.prop("value", from + ' ₸');
+        // inputTo.prop("value", to + ' ₸');	
+        inputFrom.prop("value", formatPriceView(from) + ' ₸');
+        inputTo.prop("value", formatPriceView(to) + ' ₸');	
+    }
+
+    inputFrom.on("input", function () {
+        var val = $(this).prop("value");
+        val = Number(val.slice(0, -2).split(' ').join(''))
+        // validate
+        if (val < min) {
+            val = min;
+        } else if (val > to) {
+            val = to;
         }
-        let $state = $(
-        '<input type="text" class="page-filter__price">'
-        );
-
-        return $state;
-    };
-
-    $('.select-price').select2({
-        dropdownAutoWidth : true,
-        inputAutoWidth : true,
-        minimumResultsForSearch: -1,
-        closeOnSelect: false,
-        templateResult: formatStatePrice,
+        
+        instance.update({
+            from: val
+        });
     });
 
-    // $('.select-price').on('select2:open', function(){
+    inputTo.on("input", function () {
+        var val = $(this).prop("value");
+        val = Number(val.slice(0, -2).split(' ').join(''))
         
-    // });
+        // validate
+        if (val < from) {
+            val = from;
+        } else if (val > max) {
+            val = max;
+        }
+        
+        instance.update({
+            to: val
+        });
+    });
+
+
+    $('.filter-price__background').on('click', function(){
+        $('.filter-price').removeClass('filter-price--open')
+    });
+
+    $('.page-filter__item').on('click', function(){
+        if ($(this).hasClass('filter-price')){
+            
+        } else{
+            $('.filter-price').removeClass('filter-price--open')
+        }
+    });
+
+    $('.filter-price__select').on('click', function(){
+        $('.filter-price').toggleClass('filter-price--open')
+    });
 
     $('.header__search-input').on('keyup', function(){
         $('.header__search-wrapper').addClass('header__search-wrapper--active')
@@ -127,7 +210,7 @@ $(function () {
         },
     });
 
-    $(".header__join a").fancybox({
+    $(".header__join a[data-src='join-modal]'").fancybox({
         'beforeLoad' : function(){
             $('body').addClass('modal--darker');
         },
@@ -163,9 +246,11 @@ $(function () {
         }
     });
 
-    $('#register-phone').mask('+7 (000) 000-00-00', {placeholder: "+7 (__) ___-__-__"});
+    $('[data-phone-mask]').mask('+7 (000) 000-00-00', {placeholder: "+7 (__) ___-__-__"});
 
-    $('#register-data').datepicker();
+    $('#register-data').datepicker({
+        autoClose: true
+    });
 
     $('.icon-password').on('click', function(e){
         e.preventDefault();
@@ -361,15 +446,45 @@ $(function () {
     });
 
     // cart
+    let currClone = null
+    function clonePagination(currSlider){
+        let swiperPagination = $(currSlider.pagination.el)
+        if (currClone !== null){
+            $(currClone).remove()
+        }
+        currClone = swiperPagination.clone('true').addClass("swiper-pagination--clone").appendTo(swiperPagination.parent())
+    };
 
-    const sliderCard = new Swiper('.slider-card', {
-        loop: true,
-        slidesPerView: 1,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-    });
+    let currCardSlider = null
+    $('.slider-card').on('mouseenter', function(){
+        if ($(this).hasClass('swiper-container-initialized') === false){
+            const sliderCard = new Swiper(this, {
+                init: true,
+                loop: true,
+                slidesPerView: 1,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                on: {
+                    afterInit: function(){
+                        clonePagination(this)
+                    },
+                    slideChange: function(){
+                        clonePagination(this)
+                    }
+                }
+            });
+            currCardSlider = sliderCard
+        }
+        $('.card .swiper-pagination-bullet').hover(function() {
+            $(this).trigger( "click" );
+        });
+    })
+    $('.slider-card').on('mouseleave', function(){
+        $(this).find('.swiper-pagination--clone').remove()
+        currCardSlider.destroy()
+    })
 
     // Card-up
 
@@ -385,10 +500,6 @@ $(function () {
         mousewheel: true,
         allowTouchMove: false,
         touchRatio: 5,
-    });
-
-    cardUpNavigation.on('slideChange', function(){
-        console.log(cardUpNavigation.activeIndex)
     });
 
     const cardUpMain = new Swiper('.card-up__big', {
@@ -422,4 +533,20 @@ $(function () {
         }
         $(this).text('Свернуть все отзывы')
     });
+
+    // Submit order
+
+    $('.submit-tab__head').on('click', function(){
+        $(this).parent().removeClass('submit-tab--checked')
+        $(this).parent().siblings('.submit-tab').removeClass('submit-tab--active')
+        $(this).parent().toggleClass('submit-tab--active')
+    })
+
+    $('.btn--next').on('click', function(){
+        $(this).parent().parent().next().addClass('submit-tab--active')
+        $(this).parent().parent().removeClass('submit-tab--active')
+        $(this).parent().parent().addClass('submit-tab--checked')
+    })
+
+    // Submit order
 });

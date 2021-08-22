@@ -16,16 +16,25 @@
                 option По новизне
     form.page-filter__bottom
         ul.page-filter__list
-            li.page-filter__item
-                optgroup.page-filter__select.select.select--no-search.select-price
-                    option(
-                        selected='selected'
+            li.page-filter__item.filter-price
+                .filter-price__background
+                .filter-price__select
+                    span Цена
+                .filter-price__content
+                    .extra-controls
+                        label.filter-price__label
+                            span от
+                            input.js-input-from(type='text' value='0')
+                        label.filter-price__label
+                            span до
+                            input.js-input-to(type='text' value='0')
+                    input.filter-price__input(type='text'
+                        data-type='double'
+                        data-min='0'
+                        data-max='135000'
+                        data-from='10000'
+                        data-to='125000'
                     )
-                        | Цена
-                    option(
-                        disabled='disabled'
-                    )
-                        | Цена2
             li.page-filter__item
                 span.page-filter__item-number.page-filter__item-number--hidden 0
                 select.page-filter__select.select-filter--multiple.select-color(

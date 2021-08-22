@@ -12,7 +12,7 @@
   ],
   "swiper": [
     "swiper-bundle.min.js",
-    "swiper.min.css"
+    "swiper-bundle.min.css"
   ],
   "select2": [
     "dist/js/select2.min.js",
