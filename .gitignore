@@ -4,3 +4,4 @@ package-lock.json
 .gulp
 assets/sass/generated/*.sass
 assets/sass/generated/*.scss
+build/
