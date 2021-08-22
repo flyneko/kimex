@@ -549,4 +549,6 @@ $(function () {
     })
 
     // Submit order
+
+    $('body').addClass('is-inited');
 });
