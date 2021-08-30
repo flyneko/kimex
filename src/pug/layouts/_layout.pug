@@ -15,7 +15,7 @@ html
         meta(name="format-detection", content="telephone=no")
         meta(name="format-detection", content="address=no")
         link(rel='stylesheet', type='text/css', href='assets/css/vendors.min.css')
-        link(rel='stylesheet', type='text/css', href='assets/css/app.css')
+        link(rel='stylesheet', type='text/css', href='assets/css/app.css?' + Math.round(Math.random() * 100000000))
 
     body
         include ../modals/_auth.pug
