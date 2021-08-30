@@ -11,19 +11,6 @@ $(function () {
         $('body').addClass('is-inited');
     }, 100);
 
-    $('[data-fancybox]').fancybox({
-        afterShow: function() {
-            const cardModalSlider = new Swiper('.slider--card-modal', {
-                loop: true,
-                navigation: {
-                    nextEl: '.arrow-next',
-                    prevEl: '.arrow-prev',
-                },
-                slidesPerView: 1,
-            });
-        },
-    });
-
     $('.card-modal__buttons .card__like').on('click', function(){
         $(this).parent().toggleClass('card-modal__buttons--active')
     });
@@ -203,6 +190,16 @@ $(function () {
     $("[data-src='#fast-view']").fancybox({
         'beforeShow' : function(){
             $('body').addClass('modal-center');
+        },
+        afterShow: function() {
+            const cardModalSlider = new Swiper('.slider--card-modal', {
+                loop: true,
+                navigation: {
+                    nextEl: '.arrow-next',
+                    prevEl: '.arrow-prev',
+                },
+                slidesPerView: 1,
+            });
         },
         'afterClose': function() {
             $('body').removeClass('modal-center');
