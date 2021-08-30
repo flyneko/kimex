@@ -191,12 +191,21 @@ $(function () {
         });
     })();
 
-    $(".header__join a[data-src='join-modal]'").fancybox({
+    $("[data-src='#join-modal']").fancybox({
         'beforeLoad' : function(){
             $('body').addClass('modal--darker');
         },
         'afterClose': function() {
             $('body').removeClass('modal--darker');
+        }
+    });
+
+    $("[data-src='#fast-view']").fancybox({
+        'beforeShow' : function(){
+            $('body').addClass('modal-center');
+        },
+        'afterClose': function() {
+            $('body').removeClass('modal-center');
         }
     });
 
