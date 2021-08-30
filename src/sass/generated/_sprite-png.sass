@@ -8,6 +8,16 @@
   $icon-home: x y offset_x offset_y width height total_width total_height image_path
   */
 $sprite-image: '../img/'
+$mastercard-sm-x: 134px
+$mastercard-sm-y: 24px
+$mastercard-sm-offset-x: -134px
+$mastercard-sm-offset-y: -24px
+$mastercard-sm-width: 27px
+$mastercard-sm-height: 16px
+$mastercard-sm-total-width: 162px
+$mastercard-sm-total-height: 94px
+$mastercard-sm-image: '../img/spritesheet.png'
+$mastercard-sm: 134px 24px -134px -24px 27px 16px 162px 94px '../img/spritesheet.png'
 $mastercard-x: 80px
 $mastercard-y: 24px
 $mastercard-offset-x: -80px
@@ -15,9 +25,9 @@ $mastercard-offset-y: -24px
 $mastercard-width: 54px
 $mastercard-height: 32px
 $mastercard-total-width: 162px
-$mastercard-total-height: 78px
+$mastercard-total-height: 94px
 $mastercard-image: '../img/spritesheet.png'
-$mastercard: 80px 24px -80px -24px 54px 32px 162px 78px '../img/spritesheet.png'
+$mastercard: 80px 24px -80px -24px 54px 32px 162px 94px '../img/spritesheet.png'
 $paybox-x: 0px
 $paybox-y: 24px
 $paybox-offset-x: 0px
@@ -25,19 +35,39 @@ $paybox-offset-y: -24px
 $paybox-width: 80px
 $paybox-height: 32px
 $paybox-total-width: 162px
-$paybox-total-height: 78px
+$paybox-total-height: 94px
 $paybox-image: '../img/spritesheet.png'
-$paybox: 0px 24px 0px -24px 80px 32px 162px 78px '../img/spritesheet.png'
+$paybox: 0px 24px 0px -24px 80px 32px 162px 94px '../img/spritesheet.png'
+$visa-sm-x: 110px
+$visa-sm-y: 56px
+$visa-sm-offset-x: -110px
+$visa-sm-offset-y: -56px
+$visa-sm-width: 40px
+$visa-sm-height: 12px
+$visa-sm-total-width: 162px
+$visa-sm-total-height: 94px
+$visa-sm-image: '../img/spritesheet.png'
+$visa-sm: 110px 56px -110px -56px 40px 12px 162px 94px '../img/spritesheet.png'
 $visa-x: 0px
-$visa-y: 56px
+$visa-y: 72px
 $visa-offset-x: 0px
-$visa-offset-y: -56px
+$visa-offset-y: -72px
 $visa-width: 66px
 $visa-height: 22px
 $visa-total-width: 162px
-$visa-total-height: 78px
+$visa-total-height: 94px
 $visa-image: '../img/spritesheet.png'
-$visa: 0px 56px 0px -56px 66px 22px 162px 78px '../img/spritesheet.png'
+$visa: 0px 72px 0px -72px 66px 22px 162px 94px '../img/spritesheet.png'
+$zoodpay-sm-x: 0px
+$zoodpay-sm-y: 56px
+$zoodpay-sm-offset-x: 0px
+$zoodpay-sm-offset-y: -56px
+$zoodpay-sm-width: 110px
+$zoodpay-sm-height: 16px
+$zoodpay-sm-total-width: 162px
+$zoodpay-sm-total-height: 94px
+$zoodpay-sm-image: '../img/spritesheet.png'
+$zoodpay-sm: 0px 56px 0px -56px 110px 16px 162px 94px '../img/spritesheet.png'
 $zoodpay-x: 0px
 $zoodpay-y: 0px
 $zoodpay-offset-x: 0px
@@ -45,9 +75,9 @@ $zoodpay-offset-y: 0px
 $zoodpay-width: 162px
 $zoodpay-height: 24px
 $zoodpay-total-width: 162px
-$zoodpay-total-height: 78px
+$zoodpay-total-height: 94px
 $zoodpay-image: '../img/spritesheet.png'
-$zoodpay: 0px 0px 0px 0px 162px 24px 162px 78px '../img/spritesheet.png'
+$zoodpay: 0px 0px 0px 0px 162px 24px 162px 94px '../img/spritesheet.png'
 
 /*
   The provided mixins are intended to be used with the array-like variables
@@ -95,15 +125,24 @@ $zoodpay: 0px 0px 0px 0px 162px 24px 162px 78px '../img/spritesheet.png'
   font-size: 0
   position: relative
   top: -1px
+.picon-mastercard-sm
+  +sprite($mastercard-sm)
+  background-size: 162px 94px
 .picon-mastercard
   +sprite($mastercard)
-  background-size: 162px 78px
+  background-size: 162px 94px
 .picon-paybox
   +sprite($paybox)
-  background-size: 162px 78px
+  background-size: 162px 94px
+.picon-visa-sm
+  +sprite($visa-sm)
+  background-size: 162px 94px
 .picon-visa
   +sprite($visa)
-  background-size: 162px 78px
+  background-size: 162px 94px
+.picon-zoodpay-sm
+  +sprite($zoodpay-sm)
+  background-size: 162px 94px
 .picon-zoodpay
   +sprite($zoodpay)
-  background-size: 162px 78px
+  background-size: 162px 94px

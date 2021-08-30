@@ -1,5 +1,16 @@
 include _mixins.pug
 
+mixin pay_partners(list, denisov = false)
+    ul.partners__list
+        if denisov
+            li.partners__item
+                a.partners__link(href='#')
+                    +icon('denisov-logo')   
+        each item in list
+            li.partners__item
+                +picon(item)
+
+
 mixin rate(percent) 
     ul.stars__list
         each i in [0,1,2,3,4]
