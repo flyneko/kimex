@@ -30,7 +30,7 @@
     width: 1em
     height: 1em
 
-.card-cart__title, .card-cart__price, .card__title
+.card-cart__title, .card-cart__price, .card__title, .card__price, .card-cart__size input
     font-weight: 500
 
 .arrow-prev,.arrow-next
@@ -38,10 +38,14 @@
     width: auto
     height: auto
     background: none
+    line-height: 0
+    color: $more-black
     &:before
         @extend %ticon
         content: $ticon-arrow
         font-size: 19px
+    .card-up &
+        right: auto
     
 
 .fancybox-content
@@ -58,7 +62,8 @@
     maxw: 100% !important
 
 .card
-    display: block
+    &:not(.card-search)
+        display: block
     &__top img
         width: auto !important
         height: auto !important
@@ -102,6 +107,37 @@
         background: transparent
 
 .join-modal .tabs
-    margin-top: 0 !important
+    //margin-top: 0 !important
 .join-modal .fancybox-button--close
     top: 8px
+
+.map .tabs-content
+    padding-top: 0 !important
+    
+.map .tabs-content #map
+    position: static !important
+    width: auto !important
+    height: auto
+
+#map
+    height: 520px !important
+
+.cataloge-page__all-goods
+    text-align: center
+
+
+.card-up__big
+    border: 1px solid #e8e8e8
+    .swiper-slide
+        border: 0 !important
+
+.card-up__big .swiper-slide img
+    width: auto
+    height: auto
+    padding: 0
+
+.lk-aside
+    margin-right: 0 !important
+
+.slider .slider--mini .swiper-slide
+    max-width: 218px

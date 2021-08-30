@@ -9,9 +9,14 @@ body
     z-index: 9999999
     left: 0
     top: 0
+    transition: all .3s ease
+    opacity: 1
   &.is-inited:before
-    display: none
+    opacity: 0
+    pointer-events: none   
     
+.l-body
+  overflow: hidden
   
 .l-wrapper
   max-width: #{$layout-width + ($layout-padding * 2)}px

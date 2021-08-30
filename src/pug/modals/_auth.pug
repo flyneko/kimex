@@ -1,7 +1,4 @@
-div.join-modal(
-    style='display: none'
-    id='join-modal'
-)   
+div.join-modal(style='display: none', id='join-modal')   
     .join-modal__inner
         .tabs-wrapper
             .tabs
@@ -31,7 +28,7 @@ div.join-modal(
                         input.input.input--small(type='text')
                     label.label.label--important 
                         span Дата рождения
-                        input.input.input--small.datepicker-here#register-data(type='text' required data-language='ru')
+                        input.input.input--small.datepicker-here.js-datepicker(type='text' required data-language='ru')
                         +icon('calendar')
                     label.label.label--important 
                         span Город

@@ -175,7 +175,8 @@
     }
 }
 
-.select-dropdown__filter--multiple{
+.select-dropdown__filter--multiple,
+.my-data__select--dropdown{
     max-height: 284px !important;
     overflow-y: auto;
     padding-right: 16px;
@@ -243,6 +244,23 @@
         }
         .icon-check{
             opacity: 1;
+        }
+    }
+}
+
+.select2-container--below,
+.select2-container--above{
+    .my-data__select--select{
+        .select2-selection__rendered{
+            color: $text-main;
+        }
+    }
+}
+
+.my-data__select--dropdown{
+    .select2-results__options{
+        .select2-results__option:first-child{
+            display: none;
         }
     }
 }
@@ -589,6 +607,53 @@
             font-size: 12px;
             line-height: 12px;
             font-weight: 500;
+        }
+        .slider-card{
+            position: unset;
+            .swiper-slide{
+                height: 285px;
+                display: flex;
+                align-items: flex-end;
+            }
+        }
+        .swiper-wrapper{
+            position: unset;
+        }
+        .swiper-pagination{
+            position: absolute;
+            bottom: unset;
+            top: 0;
+            right: 0;
+            margin: 0 auto;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            &--clone{
+                pointer-events: none;
+                top: 8px;
+                .swiper-pagination-bullet{
+                    background-color: $anothergray;
+                    height: 2px;
+                    width: 24px;
+                    &-active{
+                        background-color: $text-main;
+                    }
+                }
+            }
+        }
+        .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+            margin: 0 3px 0 0;
+            &:last-child{
+                margin: 0;
+            }
+        }
+        .swiper-pagination-bullet{
+            height: 100%;
+            width: 100%;
+            opacity: 1;
+            border-radius: unset;
+            background: transparent;
         }
     }
 }

@@ -1,0 +1,11 @@
+extends layouts/_cabinet.pug
+block title 
+    |    Личный кабинет - Избранное
+
+block inner 
+    .lk-saved
+        .lk-saved__inner
+            h1.subtitle избранные товары
+            .cataloge-wrapper
+                include components/_card-row.pug
+                include components/_card-row.pug

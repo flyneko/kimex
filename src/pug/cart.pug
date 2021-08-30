@@ -24,7 +24,7 @@ block content
                                         span Бежевый
                             .card-cart__right
                                 p.card-cart__size Размер:
-                                    span 43
+                                    input.input(type='text' value='43' maxlength="2")
                                 .card-cart__count
                                     button.card-cart__count--minus -
                                     input.card-cart__count-input( type='number' value='1' min='1' max='100')
@@ -49,7 +49,7 @@ block content
                                         span Коричневый
                             .card-cart__right
                                 p.card-cart__size Размер:
-                                    span 43
+                                    input.input(type='text' value='43' maxlength="2")
                                 .card-cart__count
                                     button.card-cart__count--minus -
                                     input.card-cart__count-input( type='number' value='1' min='1' max='100')
@@ -74,7 +74,7 @@ block content
                                         span Бежевый
                             .card-cart__right
                                 p.card-cart__size Размер:
-                                    span 43
+                                    input.input(type='text' value='43' maxlength="2")
                                 .card-cart__count
                                     button.card-cart__count--minus -
                                     input.card-cart__count-input( type='number' value='1' min='1' max='100')
@@ -104,7 +104,7 @@ block content
                         a.cart__btn.btn Перейти к оформлению заказа
                         include components/_pay-partners.pug
                 
-    section.slider 
+    section.slider.slider--left
         .l-wrapper
             h2.subtitle c этими товарами покупают
             include components/_slider-auto.pug

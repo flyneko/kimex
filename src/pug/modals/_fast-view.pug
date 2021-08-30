@@ -21,17 +21,31 @@
                 | 32 995 ₸
             p.card-modal__curr-color Выберите цвет:
                 span Светлобежевый
-            ul.card-modal__colors-list
-                li.card-modal__colors-item.card-modal__colors-item--active(style='background-color: #ddc5b9')
-                li.card-modal__colors-item(style='background-color: #5d5d62')
-                li.card-modal__colors-item(style='background-color: #c5c5c8')
+            .card-modal__colors-list
+                label.label--have-checkbox.label--colorpick
+                    input.checkbox(type="radio" name='modal-2-colorpick' checked)
+                    span.checkbox-style(style='background-color: #ddc5b9')
+                label.label--have-checkbox.label--colorpick
+                    input.checkbox(type="radio" name='modal-2-colorpick')
+                    span.checkbox-style(style='background-color: #5d5d62')
+                label.label--have-checkbox.label--colorpick
+                    input.checkbox(type="radio" name='modal-2-colorpick')
+                    span.checkbox-style(style='background-color: #c5c5c8')
             p.card-modal__curr-size Выберите цвет:
                 a(href='#') Таблица размеров
-            ul.card-modal__size-list
-                li.card-modal__size-item.card-modal__size-item--active S
-                li.card-modal__size-item.card-modal__size-item--not-available M
-                li.card-modal__size-item L
-                li.card-modal__size-item XL
+            .card-modal__size-list
+                label.label--have-checkbox.label--sizepick
+                    input.checkbox(type="radio" name='modal-2-sizepick' checked)
+                    span.checkbox-style S
+                label.label--have-checkbox.label--sizepick
+                    input.checkbox(type="radio" name='modal-2-sizepick' disabled)
+                    span.checkbox-style M
+                label.label--have-checkbox.label--sizepick
+                    input.checkbox(type="radio" name='modal-2-sizepick')
+                    span.checkbox-style L
+                label.label--have-checkbox.label--sizepick
+                    input.checkbox(type="radio" name='modal-2-sizepick')
+                    span.checkbox-style XL
             .card-modal__buttons
                 button.card__cart-btn.btn добавить в корзину
                 span.card__like

@@ -1,0 +1,24 @@
+extends _layout.pug
+
+block vars
+    - var logged = true
+
+block content
+    .lk
+        .l-wrapper
+            .lk__inner.l-aside
+                aside.lk-aside.l-aside__aside
+                    ul.lk-aside__list
+                        li.lk-aside__item
+                            a.lk-aside__link.hover-line.active-line(href='#') мои данные
+                        li.lk-aside__item
+                            a.lk-aside__link.hover-line(href='#') истории покупок
+                        li.lk-aside__item
+                            a.lk-aside__link.hover-line(href='#') программа лояльности
+                        li.lk-aside__item
+                            a.lk-aside__link.hover-line(href='#') избранное
+                        li.lk-aside__item
+                            a.lk-aside__link.hover-line(href='#') выйти
+                .l-aside__content
+                    block inner
+                        

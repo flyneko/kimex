@@ -1,3 +1,15 @@
+include _mixins.pug
+
+mixin rate(percent) 
+    ul.stars__list
+        each i in [0,1,2,3,4]
+            li.stars__item
+                +icon('star')
+        ul.stars__list--active(style='max-width: ' + percent + '%')
+            each i in [0,1,2,3,4]
+                li.stars__item
+                    +icon('star')
+
 mixin card(index, options = {})
     - 
         var list = [

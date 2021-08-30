@@ -1,11 +1,12 @@
 extends layouts/_layout.pug
 
+block vars
+    - var footer_light = true
+
 block title 
     | Оформление заказа
 
 block content 
-    - var footer_light = true
-
     section.submit-order
         .l-wrapper
             h1.subtitle Оформление заказа
@@ -13,7 +14,7 @@ block content
                 .submit-cart__left
                     .submit-cart__count
                         +icon('cart')
-                        | В корзине &nbsp; 
+                        p В корзине &nbsp; 
                         span (2 товара)
                     .submit-cart__price
                         | На сумму: 
@@ -40,8 +41,15 @@ block content
                             input.input.input--small(type='text')
                         label.label.label--important 
                             span Адрес
-                            input.input.input--small(type='text')
+                            textarea.input.input--small(type='text')
                         button.btn.btn--next(type='button') далее
+                    .submit-tab__checked
+                        ul.submit-tab__checked-list
+                            li.submit-tab__checked-item Алексей Заморин
+                            li.submit-tab__checked-item +7 965 443-33-33
+                            li.submit-tab__checked-item zamorin@gmail.com
+                            li.submit-tab__checked-item г. Астана, ул. Сивасова, д. 44, кв. 95
+                        button.submit-tab__checked-link.link(type='button') Изменить адрес доставки
                 .submit-delivery.submit-order__block.submit-tab
                     button.submit-tab__head(type='button') способ доставки
                     .submit-tab__body
@@ -64,6 +72,43 @@ block content
                             | Стоимость: 
                             span.submit-delivery__price 0 ₸
                         button.btn.btn--next(type='button') далее
+                    .submit-tab__checked
+                        ul.submit-tab__checked-list
+                            li.submit-tab__checked-item Доставка вне указанного квадрата
+                            li.submit-tab__checked-item Стоимость: 1 500 ₸
+                        button.submit-tab__checked-link.link(type='button') Изменить способ доставки
                 .submit-pay.submit-order__block.submit-tab
                     button.submit-tab__head(type='button') способ оплаты
                     .submit-tab__body
+                        .submit-pay__top
+                            label.label--have-checkbox
+                                input.checkbox(type='radio' name='order-pay')
+                                span.checkbox-style
+                                span.submit-pay__title Наличными
+                            label.label--have-checkbox
+                                input.checkbox(type='radio' name='order-pay')
+                                span.checkbox-style
+                                span.submit-pay__title Оплата сертификатом
+                        .submit-pay__bottom
+                            label.label--have-checkbox
+                                input.checkbox(type='radio' name='order-pay')
+                                span.checkbox-style
+                                +picon('paybox')
+                            label.label--have-checkbox
+                                input.checkbox(type='radio' name='order-pay')
+                                span.checkbox-style
+                                +picon('zoodpay')
+                            label.label--have-checkbox
+                                input.checkbox(type='radio' name='order-pay')
+                                span.checkbox-style
+                                +picon('mastercard')
+                                +picon('visa')
+                .submit-order__submit.submit-order__block
+                    ul.submit-order__submit-list
+                        li.submit-order__submit-item Товаров на сумму: 
+                            span 62 990 ₸
+                        li.submit-order__submit-item Доставка: 
+                            span 1500 ₸
+                        li.submit-order__submit-item Итого: 
+                            span 64 490 ₸
+                    button.btn.btn--submit(type='submit') подтверждение заказа

@@ -2,6 +2,8 @@
 include ../_mixins.pug
 include ../_chunks.pug
 
+block vars
+
 doctype html
 html
     head
@@ -26,5 +28,6 @@ html
 
         include ../partials/_footer.pug
 
+        block scripts
         script(src='assets/js/vendors.min.js')
         script(src='assets/js/app.js')

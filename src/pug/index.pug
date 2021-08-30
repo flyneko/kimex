@@ -1,3 +1,4 @@
+include data/_pages.pug
 doctype html
 head
   meta(charset='utf-8')
@@ -71,7 +72,7 @@ head
     .list
       .list__title Список страниц
       ul
-        each item in [{ url: 'home.html', title: 'Главная' }, { url: 'catalog.html', title: 'Каталог' }, { url: 'cart.html', title: 'Корзина' }, { url: 'product.html', title: 'Карточка товара' }, { url: 'order.html', title: 'Оформление заказа' }, { url: '404.html', title: '404' }]
+        each item in pages_list
             li
                 a(href=item.url) #{item.title}
         

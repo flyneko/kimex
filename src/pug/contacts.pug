@@ -1,0 +1,35 @@
+extends layouts/_layout.pug
+block title 
+    |    Контакты
+
+block scripts 
+    script(src="https://api-maps.yandex.ru/2.1/?166d2631-958d-4714-b12e-08e217e1c4ea&lang=ru_RU" type="text/javascript")
+
+block content 
+    section.map
+        .l-wrapper
+            h1.subtitle Контакты
+            .tabs-wrapper
+                .tabs
+                    a.tab.tab--active.hover-line.line--thin.active-line(href='#map-1') Нур-Султан
+                    a.tab.hover-line.line--thin(href='#map-2') Алматы
+                    a.tab.hover-line.line--thin(href='#map-3') Актау
+                a.btn.btn--white обратная связь
+        .tabs-container
+            .tabs-content.tabs-content--active(id='map-1')
+                #map
+                .l-wrapper
+                    div.map__places
+                        each group in [['ТРЦ MEGA Alma-Ata (ул. Розыбакиева 247A)', 'ТД Арена (ул. Абая уг. ул. Гагарина)', 'ТРЦ MEGA PARK (ул. Макатаева 127)'], ['Мкр-н Керемет 7, корпус 31', 'ул. Байтурсынова 106 (уг. ул. Сатпаева)']]
+                            ul.map__places-list
+                                each item in group
+                                    li.map__places-item
+                                        p.map__places-title #{item}
+                                        a.map__places-phone(href='tel:+77789783825') 
+                                            +icon('phone')
+                                            | +7 778 978-38-25
+                                        p.map__places-time 
+                                            +icon('clock')
+                                            | Пн.-Вс. с 10:00 до 22:00
+            .tabs-content(id='map-2')
+            .tabs-content(id='map-3')

@@ -1,4 +1,3 @@
-
 .home-choose {
     margin-top: 16px;
     margin-bottom: 80px;
@@ -11,7 +10,7 @@
         display: none;
     }
 
-    &__item {
+    &__item {     
         $root: &;
         display: flex;
         align-items: flex-end;
@@ -42,7 +41,6 @@
                 display: unset;
             }
         }
-
         &-img {
             position: absolute;
             bottom: 0;
@@ -55,7 +53,6 @@
             }
         }
     }
-
     &__gender {
         font-size: 22px;
         line-height: 22px;
@@ -63,16 +60,13 @@
         text-transform: uppercase;
         padding: 15px 0 45px;
         color: $text-main;
-        // &:before{
-        //     bottom: -18px;
-        // }
     }
 }
 
 .home-banners{
     &__inner{
-    padding: 0 0 80px;
-    display: flex;
+        padding: 0 0 80px;
+        display: flex;
     }
     &__imgwrapper{
         img{
