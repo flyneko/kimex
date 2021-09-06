@@ -1,0 +1,59 @@
+div.filter-modal.modal#filter-modal
+    .filter-modal__inner
+        p.subtitle фильтры
+        form.filter-modal__form
+            .accordion-wrapper
+                button.accordion-head(type='button') Цена
+                ul.accordion-body.filter-price
+                    .extra-controls
+                        label.filter-price__label
+                            span от
+                            input.js-input-from(type='text' value='0')
+                        label.filter-price__label
+                            span до
+                            input.js-input-to(type='text' value='0')
+                    input.filter-price__input(
+                        type='text'
+                        data-type='double'
+                        data-min='0'
+                        data-max='135000'
+                        data-from='10000'
+                        data-to='125000'
+                    )
+            .accordion-wrapper
+                button.accordion-head(type='button') Цвет
+                ul.accordion-body.filter-modal__list
+                    each key, val in { '#e5d8d2': 'Бежевый', '#ae8979': 'Персиковый', '#9d9f9e': 'Серый', '#6c685a': 'Хаки', '#6e6872': 'Фиолетовый', '#a9adb8': 'Светлосерый', '#e5d8d2': 'Бежевый' }
+                        li.filter-modal__item
+                            label.label--have-checkbox.page-filter__label
+                                span.page-filter__select-option--color(style='background-color: ' + key)
+                                input.checkbox(type='checkbox')
+                                span.checkbox-style
+                                    +icon('check')
+                                span.page-filter__label-name #{val}
+            - 
+                var accordions = {
+                    'Бренд': ['BALENCIAGA', 'BALMAIN', 'BOTTEGA', 'VENETA', 'BRUNELLO', 'CUCINELLI'],
+                    'Размер': ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
+                    'Тип': ['Открытый', 'Закрытый']
+                }
+
+            each accordionName, accordionList in accordions             
+                .accordion-wrapper
+                    button.accordion-head(type='button') Бренд
+                    ul.accordion-body.filter-modal__list
+                        each item in accordionList
+                            li.filter-modal__item
+                                label.label--have-checkbox.page-filter__label
+                                    input.checkbox(type='checkbox')
+                                    span.checkbox-style
+                                        +icon('check')
+                                    span.page-filter__label-name #{item}
+            label.label--have-checkbox.page-filter__label
+                input.checkbox(type='checkbox')
+                span.checkbox-style
+                    +icon('check')
+                span.page-filter__label-name
+                    | Новая коллекция
+            button.filter-modal__btn.btn.filter-modal__btn--submit(type='submit') применить фильтры
+            button.filter-modal__btn.btn.btn--white(type='button') очистить фильтры

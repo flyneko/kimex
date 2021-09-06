@@ -23,25 +23,49 @@ footer(class="footer " + (footer_light ? 'footer--light' : ''))
                         each i in val
                             li.footer__info-item
                                 a.footer__info-link(href="#") #{i}
+            .footer__dropdown-wrapper.footer__dropdown-wrapper--mobile.mobile-dropdown__wrapper
+                .footer__dropdown-list.mobile-dropdown__list
+                    - 
+                        var blocks = {
+                            'Пoкупателям': ['Вопрос-ответ', 'Достaвка', 'Самовывоз', 'Оплата', 'Возврат и обмен'],
+                            'Компания': ['О нас', 'Контакты', 'Сотрудничество'],
+                            'Правовая информация': ['Вопрос-ответ', 'Политика конфиденциальности', 'Оферта']
+                        }
+                    each val, key in blocks 
+                        .footer__dropdown-item.mobile-dropdown__item
+                            button.footer__dropdown-head.mobile-dropdown__head #{key}
+                            ul.footer__info-list.footer__dropdown-content.mobile-dropdown__content
+                                each item in val
+                                    li.footer__info-item
+                                        a.footer__info-link(href='#')=item
+                    .footer__dropdown-item.mobile-dropdown__item
+                        button.footer__dropdown-head.mobile-dropdown__head Мы в соцсетях
+                        nav.footer__connect.connect.footer__dropdown-content.mobile-dropdown__content
+                            include ../components/_connect-list.pug
+                    .footer__dropdown-item.mobile-dropdown__item
+                        button.footer__dropdown-head.mobile-dropdown__head Связаться с нами
+                        ul.footer__contacts-list.footer__dropdown-content.mobile-dropdown__content
+                            li.footer__contacts-item
+                                a.footer__contacts-link(href='tel:+88001002828') Казахстан: 8 (800) 100 28 28
+                            li.footer__contacts-item
+                                a.footer__contacts-link(href='tel:+84952878555') Астана: 8 (495) 287 85 55
+                            li.footer__contacts-item
+                                a.footer__contacts-link.link(href='mailto:nfo@kimex.kz') nfo@kimex.kz
         .footer__bottom
             .footer__partners.partners
                 p.footer__copyright
                     | © 2021 ООО «АЙЗЕЛ.РУ»
                     +pay_partners(['mastercard', 'visa', 'paybox', 'zoodpay'], true)
-            nav.footer__connect.connect
-                h6.connect-title.footer-subtitle
-                    | Мы в соцсетях
-                include ../components/_connect-list.pug
-            .footer__contacts
-                h6.footer__contacts-title.footer-subtitle
-                    | Связаться с нами
-                ul.footer__contacts-list
-                    li.footer__contacts-item
-                        a.footer__contacts-link(href='tel:+88001002828')
-                            | Казахстан: 8 (800) 100 28 28
-                    li.footer__contacts-item
-                        a.footer__contacts-link(href='tel:+84952878555')
-                            | Астана: 8 (495) 287 85 55
-                    li.footer__contacts-item
-                        a.footer__contacts-link.link(href='mailto:nfo@kimex.kz')
-                            | info@kimex.kz
+            .footer__bottom-right
+                nav.footer__connect.connect
+                    h6.connect-title.footer-subtitle Мы в соцсетях
+                    include ../components/_connect-list.pug
+                .footer__contacts
+                    h6.footer__contacts-title.footer-subtitle Связаться с нами
+                    ul.footer__contacts-list
+                        li.footer__contacts-item
+                            a.footer__contacts-link(href='tel:+88001002828') Казахстан: 8 (800) 100 28 28
+                        li.footer__contacts-item
+                            a.footer__contacts-link(href='tel:+84952878555') Астана: 8 (495) 287 85 55
+                        li.footer__contacts-item
+                            a.footer__contacts-link.link(href='mailto:nfo@kimex.kz') nfo@kimex.kz 

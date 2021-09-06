@@ -24,7 +24,7 @@ block content
                                 li.subnavigation__item
                                     a.subnavigation__link.hover-line(href='#')=val
                         a.home-choose__gender.hover-line(href='#') Мужчинам
-    section.slider.slider--have-cards
+    section.slider-auto-wrapper.slider.slider--have-cards
         .l-wrapper
             h3.subtitle новинки недели
             include components/_slider-auto.pug
@@ -35,9 +35,9 @@ block content
                     img(src='temp/index-banner-1.jpg' alt='')
                 .home-banners__smaller
                     a.home-banners__imgwrapper(href='#')
-                    img(src='temp/index-banner-2.jpg' alt='')
+                        img(src='temp/index-banner-2.jpg' alt='')
                     a.home-banners__imgwrapper(href='#')
-                    img(src='temp/index-banner-3.jpg' alt='')
+                        img(src='temp/index-banner-3.jpg' alt='')
     section.actually.slider
         .l-wrapper
             h3.subtitle актуальное
@@ -55,9 +55,9 @@ block content
                     a.card-big.swiper-slide(href='#')
                         img(src='temp/actually-4.jpg' alt='')
                         span.card-big__title Юбка
-            .arrow-prev
-            .arrow-next
-    section.mini-cataloge
+            .arrow-prev.arrow-prev--big-slides
+            .arrow-next.arrow-next--big-slides
+    section.mini-cataloge.slider-auto-wrapper
         .l-wrapper
             .tabs-wrapper
                 .tabs.mobile-overflow
@@ -68,25 +68,17 @@ block content
                     a.tab.subtitle.hover-line(href='#tab-3')
                         h3 exclusive
             .tabs-container
-                #tab-1.tabs-content.tabs-content--active.cataloge-wrapper
-                    include components/_card-row.pug
-                    include components/_card-row.pug
-                    include components/_card-row.pug
-                #tab-2.tabs-content.cataloge-wrapper
-                    include components/_card-row.pug
-                    include components/_card-row.pug
-                    include components/_card-row.pug
-                #tab-3.tabs-content.cataloge-wrapper
-                    include components/_card-row.pug
-                    include components/_card-row.pug
-                    include components/_card-row.pug
+                each item in [1,2,3]
+                    div(id="tab-" + item, class="tabs-content cataloge-wrapper" + (item == 1 ? ' tabs-content--active' : '')) 
+                        include components/_card-row.pug
+                        include components/_card-row.pug
+                        include components/_card-row.pug
+                        include components/_slider-auto.pug
     section.instagram.slider
         .l-wrapper
-            h3.subtitle
-            | instagram
+            h3.subtitle Instagram
             p.subtitle-descr
-                a(href='#')
-                | @kimex_grazie
+                a(href='#') @kimex_grazie
             .slider--instagram.swiper-container
                 .swiper-wrapper
                     a.card-big.swiper-slide(href='#')
@@ -95,5 +87,5 @@ block content
                         img(src='temp/instagram-2.jpg' alt='')
                     a.card-big.swiper-slide(href='#')
                         img(src='temp/instagram-3.jpg' alt='')
-            .arrow-prev
-            .arrow-next
+            .arrow-prev.arrow-prev--instagram
+            .arrow-next.arrow-next--instagram 
