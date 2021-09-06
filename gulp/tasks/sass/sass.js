@@ -1,4 +1,5 @@
 const gulp         = require('gulp'),
+      gulputil     = require('gulp-util'),
       fs           = require('fs'),
       gulpif       = require('gulp-if'),
       cleanCSS     = require('gulp-clean-css'),
@@ -64,6 +65,7 @@ gulp.task('sass:native', function(done) {
             outputStyle: config.production ? 'compressed' : 'expanded', // nested, expanded, compact, compressed
             precision: 5
         }))
+        .on('error', gulputil.log)
         .pipe(base64('..'))
         .pipe(postcss(processors))
         .pipe(gulpif(config.production, cleanCSS()))
