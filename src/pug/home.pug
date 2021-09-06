@@ -38,7 +38,7 @@ block content
                         img(src='temp/index-banner-2.jpg' alt='')
                     a.home-banners__imgwrapper(href='#')
                         img(src='temp/index-banner-3.jpg' alt='')
-    section.actually.slider
+    section.actually.slider.slider-left-margin
         .l-wrapper
             h3.subtitle актуальное
             .slider--big-slides.swiper-container
@@ -57,7 +57,7 @@ block content
                         span.card-big__title Юбка
             .arrow-prev.arrow-prev--big-slides
             .arrow-next.arrow-next--big-slides
-    section.mini-cataloge.slider-auto-wrapper
+    section.mini-cataloge
         .l-wrapper
             .tabs-wrapper
                 .tabs.mobile-overflow
@@ -69,12 +69,12 @@ block content
                         h3 exclusive
             .tabs-container
                 each item in [1,2,3]
-                    div(id="tab-" + item, class="tabs-content cataloge-wrapper" + (item == 1 ? ' tabs-content--active' : '')) 
+                    div(id="tab-" + item, class="tabs-content cataloge-wrapper slider slider-auto-wrapper" + (item == 1 ? ' tabs-content--active' : '')) 
                         include components/_card-row.pug
                         include components/_card-row.pug
                         include components/_card-row.pug
                         include components/_slider-auto.pug
-    section.instagram.slider
+    section.instagram.slider.slider-left-margin
         .l-wrapper
             h3.subtitle Instagram
             p.subtitle-descr
