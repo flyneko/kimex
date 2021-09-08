@@ -1,22 +1,5 @@
 ul.connect__list
-    li.connect__item
-        a.connect__link(href='#')
-            +icon('facebook')
-    li.connect__item
-        a.connect__link(href='#')
-            +icon('vk')
-    li.connect__item
-        a.connect__link(href='#')
-            +icon('ok')
-    li.connect__item.cant-login
-        a.connect__link(href='#')
-            +icon('instagram')
-    li.connect__item.cant-login
-        a.connect__link(href='#')
-            +icon('youtube')
-    li.connect__item.cant-login
-        a.connect__link(href='#')
-            +icon('telegram')
-    li.connect__item
-        a.connect__link(href='#')
-            +icon('twitter')
+    each item in ['instagram', 'facebook', 'youtube', 'tiktok']
+        li.connect__item
+            a.connect__link(href='#')
+                +icon(item)

@@ -92,10 +92,12 @@ block content
                         li.cart-list__item.cart-list__item--delivery
                             p Доставка:
                             span 600 ₸
-                        li.cart-list__item.cart__promo.accordion-wrapper
-                            button.cart__promo-head.accordion-head Добавить промокод
-                            .cart__promo-content.accordion-body.input-wrapper
-                                input.input.input--small(type='text' placeholder='Введите промокод')
+                        .cart-list__inputs
+                            each item in [{label: 'Промокод', placeholder: 'Введите промокод'}, {label: 'Дисконтная карта', placeholder: 'Укажите номер вашей дисконтной карты'}, {label: 'Подарочный сертификат', placeholder: 'Введите номер подарочного сертификата'}]
+                                li.cart-list__item.cart__promo.accordion-wrapper
+                                    button.cart__promo-head.accordion-head #{item.label}
+                                    .cart__promo-content.accordion-body.input-wrapper
+                                        input.input.input--small(type='text' placeholder=item.placeholder)
                         li.cart-list__item.cart-list__item--all
                             p Итого:
                             span 48 990 ₸ 

@@ -85,10 +85,6 @@ block content
                                 input.checkbox(type='radio' name='order-pay')
                                 span.checkbox-style
                                 span.submit-pay__title Наличными
-                            label.label--have-checkbox
-                                input.checkbox(type='radio' name='order-pay')
-                                span.checkbox-style
-                                span.submit-pay__title Оплата сертификатом
                         .submit-pay__bottom
                             label.label--have-checkbox
                                 input.checkbox(type='radio' name='order-pay')
@@ -111,4 +107,9 @@ block content
                             span 1500 ₸
                         li.submit-order__submit-item Итого: 
                             span 64 490 ₸
+                        li.submit-order__submit-item
+                            label.label--have-checkbox
+                                input.checkbox(type='checkbox' name='order-pay')
+                                span.checkbox-style
+                                span.label-checkbox__title Оплата сертификатом
                     button.btn.btn--submit(type='submit') подтверждение заказа

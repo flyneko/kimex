@@ -19,6 +19,8 @@ block content
                     .cataloge__cards
                         each i in [0,1,2,3,4,0,1,2,3,4,0,1,2,3,4,0]
                             +card(i)
+                        .cataloge__show-more 
+                            button.btn Показать еще товары
                     nav.cataloge__page-nav.pagination
                         p.pagination__descr Страницы: &nbsp;
                         ul.pagination__list
