@@ -316,7 +316,7 @@ $(function () {
         
         
         const instagram = new Swiper('.slider--instagram', {
-            loop: true,
+            loop: false,
             spaceBetween: 32,
             navigation: {
                 nextEl: '.arrow-next--instagram',
@@ -337,16 +337,11 @@ $(function () {
                 950: {
                     slidesPerView: 3,
                 },
-            },
-            on: {
-                init: function () {
-                    this.slideTo(0)
-                },
-            },
+            }
         });
         
         const bigSlides = new Swiper('.slider--big-slides', {
-            loop: true,
+            loop: false,
             spaceBetween: 32,
             navigation: {
                 nextEl: '.arrow-next.arrow-next--big-slides',
@@ -368,11 +363,6 @@ $(function () {
                 },
                 950: {
                     slidesPerView: 4,
-                },
-            },
-            on: {
-                init: function () {
-                    this.slideTo(0)
                 },
             },
         });

@@ -171,7 +171,7 @@
 
 .slider-auto-wrapper .slider-auto .card 
     +r($sm)
-        width: 50% !important
+        //width: 50% !important
 
 
 .header__search-wrapper--mobile .header__searched .card
@@ -188,16 +188,35 @@
 
 
 .instagram
-    +r(768)
+    +r($sm)
         margin-top: 0 !important
 
 .mini-cataloge
-    +r(768)
+    +r($sm)
         margin-bottom: 0 !important
+
+// Зачем-то скрывается 
+.actually .card-big__title 
+    display: block !important
 
 .home-banners
     +r(390)
         margin-top: 0 !important
+    &__inner
+        +r($sm)
+            margin-left: -#{$layout-padding}px
+            margin-right: -#{$layout-padding}px
+            padding-left: #{$layout-padding}px
+            padding-right: #{$layout-padding}px
+
+.slider.full-width
+    +r(545)
+        > .l-wrapper > .swiper-container
+            margin-left: -#{$layout-padding}px
+            margin-right: -#{$layout-padding}px
+            width: auto !important
+            padding-left: #{$layout-padding}px
+            padding-right: #{$layout-padding}px
 
 .card__top img
     +r(650)
@@ -211,3 +230,14 @@
 .card.swiper-slide
     +r($sm)
         min-height: auto !important
+
+.slider-auto-wrapper
+    +r($sm)
+        .arrow-prev
+            left: 8px !important
+        .arrow-next
+            right: 8px !important
+
+.cataloge-wrapper.tabs-content
+    +r($sm)
+        position: static !important
