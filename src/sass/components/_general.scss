@@ -1,4 +1,3 @@
-
 .subtitle{
     font-size: 22px;
     line-height: 22px;
@@ -1119,9 +1118,6 @@
         }
     }
 
-    &__list-item {
-    }
-
     &__info-item {
         & + &{
             margin-top: 15px;
@@ -1399,10 +1395,6 @@
         }
     }
 
-    &__btn {
-        
-    }
-
     &__policy {
         max-width: 500px;
         font-size: 11px;
@@ -1412,8 +1404,6 @@
         }
     }
 
-    &__policy-link {
-    }
 }
 .partners {
 
@@ -1443,8 +1433,6 @@
         }
     }
 
-    &__link {
-    }
 }
 .connect {
     margin-right: 155px;
@@ -1628,8 +1616,9 @@
         margin-bottom: 20px;
         display: flex;
         align-items: flex-end;
+        justify-content: center;
         position: relative;
-        min-height: 304px;
+        min-height: 316px;
         padding: 10px;
         img{
             max-height: 294px;

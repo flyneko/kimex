@@ -428,6 +428,12 @@ $(function () {
 
     // Cart
     (function() {
+        $('.card-cart__size-change').on('click', function(){
+            let input = $(this).prev();
+            input.removeAttr('disabled');
+            input.focus();
+        });
+
         $('.card-cart__count button').on('click', function(){
             let currInput = $(this).siblings('.card-cart__count-input');
             let currValue = Number($(this).siblings('.card-cart__count-input').val())
@@ -534,6 +540,15 @@ $(function () {
             touchRatio: 0,
             slideToClickedSlide: true,
             updateOnWindowResize: false,
+            breakpoints: {
+                320: {
+                    spaceBetween: 8,
+                },
+                950: {
+                    slidesPerView: 4,
+                    spaceBetween: 16,
+                },
+            }
         });
 
         const cardUpMain = new Swiper('.card-up__big', {
@@ -548,10 +563,31 @@ $(function () {
             },
             mousewheel: {
                 sensitivity: 1.4,
+            },
+            breakpoints: {
+                320: {
+                    pagination: {
+                        el: '.swiper-pagination',
+                        type: 'bullets',
+                        clickable: true,
+                    },
+                },
+                950: {
+                    pagination: false,
+                },
             }
         });
 
         cardUpMain.controller.control = cardUpNavigation;
+
+        const cardUpRewiews = new Swiper('.card-up__reviews-slider', {
+            slidesPerView: 1,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+                clickable: true,
+            },
+        });
 
         $('.card-up .swiper-wrapper').on('mousewheel', function(e){
             e.preventDefault()
