@@ -20,7 +20,7 @@
     font-weight: 600
 
 .header__top-inner
-    height: 32px !important
+    height: 32px
     padding: 0 !important
 
 .partners__item .icon
@@ -48,7 +48,7 @@
     .card-up &
         right: auto
     &.swiper-button-disabled
-        opacity: 0
+        opacity: 0.5
     
 
 .fancybox-content
@@ -129,15 +129,21 @@
     text-align: center
 
 
+.card-up__gallery
+    max-height: 656px
+    height: 100%
+
 .card-up__big
-    border: 1px solid #e8e8e8
+    .icon-resize
+        pointer-events: none
     .swiper-slide
-        border: 0 !important
+        align-items: center
 
 .card-up__big .swiper-slide img
     width: auto
     height: auto
     padding: 0
+    object-fit: none
 
 .lk-aside
     margin-right: 0 !important
