@@ -736,7 +736,29 @@ $(function () {
           e.preventDefault();
           $('html, body').animate({scrollTop:0}, '300');
         });
-        
-        
     })();
+
+    // Fixed header
+    (function() {
+        $('.js-header').each(function() {
+            var $header = $(this);
+            var pos = $header.offset().top + $header.outerHeight();
+            var $replace = $('<div>').insertBefore($header);
+
+            function headerFixed() {
+                var top = $(document).scrollTop();
+                if ($header.is(':visible') && top >= pos && !$header.hasClass('is-fixed')) {
+
+                    $replace.css('height', $header.outerHeight())
+                    $header.addClass('is-fixed');
+                } else if (top <= pos && $header.hasClass('is-fixed')) {
+                    $replace.css('height', 0);
+                    $header.removeClass('is-fixed');
+                }
+            }
+
+            $(window).on('scroll', headerFixed);
+            headerFixed();
+        })
+    })()
 });

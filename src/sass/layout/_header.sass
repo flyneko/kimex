@@ -1,0 +1,19 @@
+.header
+    $root: &
+    &.is-fixed
+        position: fixed
+        left: 0
+        top: 0
+        width: 100%
+        z-index: 9999
+        background: #fff
+        #{$root}__top-inner
+            height: 0
+        #{$root}__middle-wrapper
+            min-height: auto !important
+        .logo img
+            width: 150px
+    &__top-inner
+        overflow: hidden
+    .logo img
+        height: auto !important
