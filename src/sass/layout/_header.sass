@@ -1,12 +1,13 @@
-.header
+.header.is-fixed
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+    z-index: 9999
+    background: #fff
+.header:not(.header--mobile)
     $root: &
     &.is-fixed
-        position: fixed
-        left: 0
-        top: 0
-        width: 100%
-        z-index: 9999
-        background: #fff
         #{$root}__top-inner
             height: 0
         #{$root}__middle-wrapper
