@@ -8,9 +8,9 @@
 .header:not(.header--mobile)
     $root: &
     &.is-fixed
-        #{$root}__top-inner
-            height: 0
-        #{$root}__middle-wrapper
+        .header__top-inner
+            display: none
+        .header__middle-wrapper
             min-height: auto !important
         .logo img
             width: 150px
