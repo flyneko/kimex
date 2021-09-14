@@ -1647,8 +1647,6 @@
 
     &__new{
         background-color: $secondary;
-        width: 40px;
-        height: 40px;
         z-index: 10;
         display: none;
         &:before{
@@ -1763,21 +1761,6 @@
             height: 1px;
             width: 95%;
             background-color: $text-light;
-        }
-    }
-
-    &--haveDiscount{
-        .card__discount{
-            display: flex;
-        }
-        .card__price--old{
-            display: inline-block;
-        }
-    }
-
-    &--new{
-        .card__new{
-            display: block;
         }
     }
 
