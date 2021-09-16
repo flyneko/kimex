@@ -760,5 +760,45 @@ $(function () {
             $(window).on('scroll', headerFixed);
             headerFixed();
         })
-    })()
+    })();
+
+    // Product share
+    (function() {
+        var $share = $('.js-product-share');
+        var close = function() {
+            $share.removeClass('is-active')
+        };
+
+        $('.js-product-share-trigger').on('click', function() {
+            $share.toggleClass('is-active');
+        });
+
+        $('.js-product-share-close').on('click', function() {
+            close();
+        });
+
+        $(document).on('click', function(e) {
+            var $target = $(e.target);
+            e.preventDefault();
+            if (!$target.closest('.js-product-share, .js-product-share-trigger').length && !$target.hasClass('js-product-share') && !$target.hasClass('js-product-share-trigger'))
+                close();
+        });
+
+
+        $('.js-product-share-input').on('click', function(event) {
+            this.focus();
+            this.select();
+        
+            try {
+                var successful = document.execCommand('copy');
+                var msg = successful ? 'successful' : 'unsuccessful';
+                var $success = $('.js-product-share-copy-success');
+                $success.addClass('is-active')
+                setTimeout(function() {
+                    $success.removeClass('is-active');
+                }, 3000)
+            } catch (err) {
+            }
+        });
+    })();
 });

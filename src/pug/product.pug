@@ -101,9 +101,28 @@ block content
                             button.card__cart-btn.btn добавить в корзину
                             span.card__like
                                 +icon('save')
-                        a.card-modal__link(href='#')
-                            +icon('box')
-                            span.link Проверить наличие в магазине
+                        .card-modal__links 
+                            a.card-modal__link(href='#')
+                                +icon('box')
+                                span.link Проверить наличие в магазине
+                            a.card-modal__link.js-product-share-trigger(href="#") 
+                                +icon('share')
+                                span.link Поделиться
+                            .card-modal__share.js-product-share    
+                                button.card-modal__share-close.js-product-share-close
+                                    +icon('x')                            .
+                                .card-modal__share-group 
+                                    .card-modal__share-label 
+                                        | Скопировать ссылку
+                                        .card-modal__share-copy-success.js-product-share-copy-success.no-opacity Скопировано!
+                                    input.input.input--small.js-product-share-input(value="http://kimex.kz/balenciaga/bags/12312-super-bag-vip-discount")
+                                .card-modal__share-group
+                                    .card-modal__share-label Соцсети
+                                    ul.connect__list.connect--black
+                                        each item in ['instagram', 'facebook', 'youtube', 'tiktok']
+                                            li.connect__item
+                                                a.connect__link(href='#')
+                                                    +icon(item)
                         ul.card-up__details-wrapper
                             li.accordion-wrapper
                                 button.accordion-head Детали
