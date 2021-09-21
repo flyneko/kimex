@@ -686,37 +686,136 @@ $(function () {
     (function() {
         if (!document.getElementById('map')) return;
 
-        ymaps.ready(initMap);
-        function initMap(){
+        ymaps.ready(function() {
+            MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+                '<div class="balloon">' +
+                    '<a class="balloon__close" href="#"><svg class="icon icon-x"><use xlink:href="assets/img/sprite.svg#icon-x"></use></svg></a>' +
+                    '<span class="balloon__arrow"></span>' + 
+                    '<div class="balloon__inner">' +
+                    '$[[options.contentLayout observeSize minWidth=235 maxWidth=235 maxHeight=350]]' +
+                    '</div>' +
+                    '</div>', 
+                {
+                   
+                build: function () {
+                    this.constructor.superclass.build.call(this);
+
+                    this._$element = $('.balloon', this.getParentElement());
+
+                    this.applyElementOffset();
+
+                    this._$element.find('.balloon__close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
+
+                clear: function () {
+                    this._$element.find('.balloon__close')
+                        .off('click');
+
+                    this.constructor.superclass.clear.call(this);
+                },
+
+                onSublayoutSizeChange: function () {
+                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                    if(!this._isElement(this._$element)) {
+                        return;
+                    }
+
+                    this.applyElementOffset();
+
+                    this.events.fire('shapechange');
+                },
+
+                applyElementOffset: function () {
+                    this._$element.css({
+                        left: -(this._$element[0].offsetWidth / 2),
+                        top: -(this._$element[0].offsetHeight + this._$element.find('.balloon__arrow')[0].offsetHeight)
+                    });
+                },
+
+                onCloseClick: function (e) {
+                    e.preventDefault();
+
+                    this.events.fire('userclose');
+                },
+
+                getShape: function () {
+                    if(!this._isElement(this._$element))
+                        return MyBalloonLayout.superclass.getShape.call(this);
+
+                    var position = this._$element.position();
+
+                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                        [position.left, position.top], [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.balloon__arrow')[0].offsetHeight
+                        ]
+                    ]));
+                },
+
+                _isElement: function (element) {
+                    return element && element[0] && element.find('.balloon__arrow')[0];
+                }
+            });
+
             // Создание карты.
             var myMap = new ymaps.Map(document.querySelector('#map'), {
                 center: [51.17343339, 71.42483223],
                 zoom: 14
             });
 
-            var MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-                '<div style="color: #fff; font-size: 16px; line-height: 16px; font-family: "Monserrat"; font-weight: 600;">$[properties.iconContent]</div>'
-            );
-            var coordinates = [
-                [51.17343339, 71.42483223], 
-                [51.17343439, 71.42483888],
-                [51.17386339, 71.46783999]
+            var shops = [
+                {
+                    coordinates: [51.17243339, 71.43483223],
+                    name: 'ТРЦ MEGA Alma-Ata (ул. Розыбакиева 247A)',
+                    phone: '+7 778 978-38-25',
+                    workdays: 'Пн.-Вс. с 10:00 до 22:00'
+                }, 
+                {
+                    coordinates: [51.17345439, 71.42484888],
+                    name: 'ТД Арена (ул. Абая уг. ул. Гагарина)',
+                    phone: '+7 778 978-38-25',
+                    workdays: 'Пн.-Вс. с 10:00 до 22:00'
+                },
+                {
+                    coordinates: [51.17386339, 71.46783999],
+                    name: 'ТРЦ MEGA PARK (ул. Макатаева 127)',
+                    phone: '+7 778 978-38-25',
+                    workdays: 'Пн.-Вс. с 10:00 до 22:00'
+                }
             ];
 
 
-            for (var i in coordinates)
+            for (var i in shops) {
+                var shop = shops[i];
                 myMap.geoObjects
-                    .add(new ymaps.Placemark(coordinates[i], {
-                        iconContent: parseInt(i) + 1
+                    .add(new ymaps.Placemark(shop.coordinates, {
+                        iconContent: parseInt(i) + 1,
+                        balloonContent: '' +
+                        '<p class="map__places-title">' + shop.name + '</p>' + 
+                        '<a class="map__places-phone" href="tel:' + shop.phone + '"> <svg class="icon icon-phone "> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/img/sprite.svg#icon-phone"></use></svg>' + shop.phone + '</a>' +
+                        '<p class="map__places-time"> <svg class="icon icon-clock "> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/img/sprite.svg#icon-clock"></use></svg> ' + shop.workdays + '</p>'
                     }, {
                         iconLayout: 'default#imageWithContent',
                         iconImageHref: 'assets/img/pin-filled.svg',
                         iconImageSize: [40, 48],
                         iconImageOffset: [0, 0],
                         iconContentOffset: [15, 14],
-                        iconContentLayout: MyIconContentLayout
+                        iconContentLayout: ymaps.templateLayoutFactory.createClass(
+                            '<div style="color: #fff; font-size: 16px; line-height: 16px; font-family: "Monserrat"; font-weight: 600;">$[properties.iconContent]</div>'
+                        ),
+
+                        balloonShadow: false,
+                        balloonLayout: MyBalloonLayout,
+                        balloonPanelMaxMapArea: 0,
+                        // Не скрываем иконку при открытом балуне.
+                        hideIconOnBalloonOpen: false,
+                        // И дополнительно смещаем балун, для открытия над иконкой.
+                        balloonOffset: [20, -10]
                     }));
-        }
+            }
+        });
     })();
 
     (function() {

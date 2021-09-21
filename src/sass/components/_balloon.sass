@@ -1,0 +1,20 @@
+.balloon
+    background: #fff
+    padding: 20px
+    box-shadow: 0 4px 15px rgba(#000, 0.1)
+    position: relative
+    width: 300px
+    &__arrow
+        left: 50%
+        transform: translate3d(-50%, 0, 0)
+        position: absolute
+        +arr(15, 10, #fff, b)
+        top: 100%
+    &__close
+        position: absolute
+        right: 10px
+        top: 10px
+        font-size: 0
+        .icon
+            font-size: 12px !important
+            margin-right: 0 !important
