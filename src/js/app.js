@@ -878,9 +878,10 @@ $(function () {
 
         $(document).on('click', function(e) {
             var $target = $(e.target);
-            e.preventDefault();
-            if (!$target.closest('.js-product-share, .js-product-share-trigger').length && !$target.hasClass('js-product-share') && !$target.hasClass('js-product-share-trigger'))
+            if (!$target.closest('.js-product-share, .js-product-share-trigger').length && !$target.hasClass('js-product-share') && !$target.hasClass('js-product-share-trigger')){
+                e.preventDefault();
                 close();
+            }
         });
 
 
