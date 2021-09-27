@@ -1,5 +1,6 @@
 const gulp    = require('gulp'),
     config  = require('../config.js'),
+    gulputil     = require('gulp-util'),
     pug     = require('gulp-pug');
 
 
@@ -10,6 +11,7 @@ gulp.task('pug', function(done){
                 pretty: !!config.production,
             })
         )
+        .on('error', gulputil.log)
         .pipe(gulp.dest(config.dest.html));
 
     done();
