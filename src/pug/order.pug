@@ -38,10 +38,12 @@ block content
                             input.input.input--small(type='text')
                         label.label.label--important
                             span Город
-                            input.input.input--small(type='text')
+                            select.js-select(name="delivery_city")
+                                option(value="almaty") Алматы
+                                option(value="other") Другие
                         label.label.label--important 
                             span Адрес
-                            textarea.input.input--small(type='text')
+                            input.input.input--small(type='text')
                         button.btn.btn--next(type='button') далее
                     .submit-tab__checked
                         ul.submit-tab__checked-list
@@ -53,24 +55,60 @@ block content
                 .submit-delivery.submit-order__block.submit-tab
                     button.submit-tab__head(type='button') способ доставки
                     .submit-tab__body
-                        label.label--have-checkbox
-                            input.checkbox(type='radio' name='order-delivery')
-                            span.checkbox-style
-                            span.submit-delivery__subtitle Доставка в пределах квадрата пр. Аль-Фараби – ул. Бузурбаева – пр. Рыскулова – ул. Яссауи 
-                            | Стоимость: 
-                            span.submit-delivery__price 1 000 ₸
-                        label.label--have-checkbox
-                            input.checkbox(type='radio' name='order-delivery')
-                            span.checkbox-style
-                            span.submit-delivery__subtitle Доставка вне указанного квадрата
-                            | Стоимость: 
-                            span.submit-delivery__price 1 500 ₸
-                        label.label--have-checkbox
-                            input.checkbox(type='radio' name='order-delivery')
-                            span.checkbox-style
-                            span.submit-delivery__subtitle Cамовывоз: г. Алматы, ул. Жибек Жолы 104 , магазин «Kimex»
-                            | Стоимость: 
-                            span.submit-delivery__price 0 ₸
+                        .js-other-delivery.d-none 
+                            .delivery-methods
+                                .delivery-methods__head 
+                                    .delivery-methods__method Служба
+                                    .delivery-methods__days Сроки доставки
+                                    .delivery-methods__price Стоимость
+                                .delivery-methods__body 
+                                    - 
+                                        var delivery_methods = [
+                                            { name: 'Алем-ТАТ', value: 'alemtat', days: '1 - 2', price: '1 000' },
+                                            { name: 'СДЭК', value: 'cdek', days: '2 - 5', price: '1 500' },
+                                            { name: 'Pony Express', value: 'pony', days: '1 - 7', price: '2 500' },
+                                            { name: 'Spark Logistics', value: 'spark', days: '3 - 5', price: '3 000' },
+                                            { name: 'DPD', value: 'dpd', days: '7 - 10', price: '5 000' }
+                                        ]
+                                    each item in delivery_methods
+                                        label.delivery-methods__row 
+                                            .delivery-methods__method
+                                                .label.label--have-checkbox
+                                                    input.checkbox(type='radio' name='other-delivery')
+                                                    span.checkbox-style 
+                                                .delivery-methods__icon
+                                                    if item.value == 'alemtat'
+                                                        +picon('alem-tat')
+                                                    else if item.value == 'cdek'
+                                                        +icon('cdek-logo')
+                                                    else if item.value == 'pony'
+                                                        +picon('pony-express')
+                                                    else if item.value == 'spark'
+                                                        +icon('spark-logo') 
+                                                    else if item.value == 'dpd'
+                                                        +icon('dpd-logo')
+                                                span #{item.name}
+                                            .delivery-methods__days #{item.days} раб. дней
+                                            .delivery-methods__price #{item.price} ₸
+                        .js-almaty-delivery
+                            label.label--have-checkbox
+                                input.checkbox(type='radio' name='order-delivery')
+                                span.checkbox-style
+                                span.submit-delivery__subtitle Доставка в пределах квадрата пр. Аль-Фараби – ул. Бузурбаева – пр. Рыскулова – ул. Яссауи 
+                                | Стоимость: 
+                                span.submit-delivery__price 1 000 ₸
+                            label.label--have-checkbox
+                                input.checkbox(type='radio' name='order-delivery')
+                                span.checkbox-style
+                                span.submit-delivery__subtitle Доставка вне указанного квадрата
+                                | Стоимость: 
+                                span.submit-delivery__price 1 500 ₸
+                            label.label--have-checkbox
+                                input.checkbox(type='radio' name='order-delivery')
+                                span.checkbox-style
+                                span.submit-delivery__subtitle Cамовывоз: г. Алматы, ул. Жибек Жолы 104 , магазин «Kimex»
+                                | Стоимость: 
+                                span.submit-delivery__price 0 ₸
                         button.btn.btn--next(type='button') далее
                     .submit-tab__checked
                         ul.submit-tab__checked-list
@@ -93,7 +131,10 @@ block content
                             label.label--have-checkbox
                                 input.checkbox(type='radio' name='order-pay')
                                 span.checkbox-style
-                                +picon('zoodpay')
+                                div
+                                    +picon('zoodpay')
+                                    br
+                                    span.m-t-5.d-block.checkbox-absolute-label Рассрочка
                             label.label--have-checkbox
                                 input.checkbox(type='radio' name='order-pay')
                                 span.checkbox-style

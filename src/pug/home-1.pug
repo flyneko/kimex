@@ -1,0 +1,12 @@
+extends layouts/_home.pug
+
+block banners 
+    .cards 
+        .cards__row.row
+            .cards__col.col-12
+                .carousel   
+                    .swiper-container.js-single-carousel 
+                        .swiper-wrapper 
+                            each i in [1,2,3]
+                                .swiper-slide.cards__container
+                                    +banner({ img: i })

@@ -119,7 +119,7 @@ block content
                                 .card-modal__share-group
                                     .card-modal__share-label Соцсети
                                     ul.connect__list.connect--black
-                                        each item in ['instagram', 'facebook', 'youtube', 'tiktok']
+                                        each item in ['whatsapp', 'pinterest', 'facebook', 'twitter', 'telegram', 'envelope']
                                             li.connect__item
                                                 a.connect__link(href='#')
                                                     +icon(item)
@@ -128,32 +128,52 @@ block content
                                 button.accordion-head Детали
                                 .accordion-body
                                     ul.card-up__details-list
-                                        each val in ['Бренд', 'Страна производства' , 'Состав', 'Цвет', 'Артикул', 'Штрих-код', 'Параметры модели']   
+                                        each val in ['Материал верха', 'Внутренний материал', 'Материал подошвы', 'Материал стельки', 'Высота каблука', 'Состав', 'Материал подкладки', 'Утеплитель', 'Ширина', 'Высота', 'Ширина дна', 'Длина ручек', 'Плечевой ремень', 'Застежка', 'Бренд', 'Пол', 'Страна производитель', 'Сезон']   
                                             li.card-up__details-listitem=val 
                                     ul.card-up__details-list   
-                                        li.card-up__details-listitem.link MM6 
-                                        each val in ['РУМЫНИЯ' , '70% вискоза, 30% полиэстер', 'Бежевый', 'S52HA0160 121', '3226163', '176/80/60/86, размер на модели – 42RU']   
+                                        each val in ['Кожа' , 'Синтетика', 'Резина', 'Синтетика', '50 см', '90% полиэстер, 10% хлопок', 'Синтетика', 'Есть', '100 см', '50 см', '10 см', '10 см', 'В наличии', 'В наличии', 'GUCCI', 'Женский', 'Вьетнам', 'Лето']   
                                             li.card-up__details-listitem=val 
                             li.accordion-wrapper
                                 button.accordion-head Оплата
                                 .accordion-body
-                                    ul.card-up__details-list
-                                        each val in ['Бренд', 'Страна производства' , 'Состав', 'Цвет', 'Артикул', 'Штрих-код', 'Параметры модели']   
-                                            li.card-up__details-listitem=val 
-                                    ul.card-up__details-list   
-                                        li.card-up__details-listitem.link MM6 
-                                        each val in ['РУМЫНИЯ' , '70% вискоза, 30% полиэстер', 'Бежевый', 'S52HA0160 121', '3226163', '176/80/60/86, размер на модели – 42RU']   
-                                            li.card-up__details-listitem=val 
+                                    div
+                                        ul.list.m-b-20
+                                            li онлайн-оплата банковской картой на сайте Интернет-магазина
+                                            li онлайн-оплата рассрочка ZoodPay
+                                            li подарочным сертификатом
+                                        .partners 
+                                            +pay_partners(['mastercard', 'visa', 'paybox', 'zoodpay'])
                             li.accordion-wrapper
                                 button.accordion-head Доставка и возврат
                                 .accordion-body
-                                    ul.card-up__details-list
-                                        each val in ['Бренд', 'Страна производства' , 'Состав', 'Цвет', 'Артикул', 'Штрих-код', 'Параметры модели']   
-                                            li.card-up__details-listitem=val 
-                                    ul.card-up__details-list   
-                                        li.card-up__details-listitem.link MM6 
-                                        each val in ['РУМЫНИЯ' , '70% вискоза, 30% полиэстер', 'Бежевый', 'S52HA0160 121', '3226163', '176/80/60/86, размер на модели – 42RU']   
-                                            li.card-up__details-listitem=val 
+                                    div
+                                        h4.h4 ДОСТАВКА 
+
+                                        .m-b-25 Доставка товаров осуществляется по всему Казахстану.
+
+                                        .m-b-25
+                                            .m-b-10 Доставка по г.Алматы:
+                                            ul.list
+                                                li срок доставки: 1-2 дня, следующих после дня подтверждения заказа
+                                                li стоимость доставки в пределах квадрата пр. Аль-Фараби – ул. Бузурбаева – пр. Рыскулова – ул. Яссауи - 1000 тенге
+                                                li стоимость доставки вне указанного квадрата - 1500 тенге
+                                                li При заказе на сумму более 15 000 тг доставка осуществляется бесплатно
+                                                li время доставки в будние дни с 12:00 до 21:00
+                                                li в праздничные и выходные дни доставка не осуществляется
+
+                                        .m-b-25
+                                            .m-b-10 Доставка по другим городам Казахстана:
+                                            ul.list
+                                                li стоимость доставки рассчитывается индивидуально в зависимости от пункта назначения и веса посылки
+                                                li доставка осуществляется до двери 
+
+                                        h4.h4 ВОЗВРАТЫ
+                                        
+                                        .text
+                                            | Вы можете осуществить возврат товара в течение 14 дней. 
+                                            br
+                                            | Более подробную информацию вы найдете в разделе 
+                                            a(href="#").link Политика возвратов
                 .card-up__reviews.reviews
                     .reviews__head
                         h2.subtitle отзывы

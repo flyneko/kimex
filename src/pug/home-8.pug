@@ -1,0 +1,16 @@
+extends layouts/_home.pug
+
+block banners 
+    .cards 
+        .cards__row.row 
+            .cards__col.col-12.col-xxs-12.col-md-5
+                .cards__container
+                    +banner({ img: 1 })
+            .cards__col.col-12.col-xxs-6.col-md-3
+                .cards__container
+                    +banner({ img: 3 })
+            .cards__col.col-12.col-xxs-6.col-md-4
+                .cards__container.cards__container--v
+                    +banner({ img: 2 })
+                    +banner({ img: 1 })
+                    +banner({ img: 3 })

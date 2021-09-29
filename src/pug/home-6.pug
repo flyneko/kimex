@@ -1,0 +1,9 @@
+extends layouts/_home.pug
+
+block banners 
+    .cards 
+        .cards__row.row 
+            each item in [1,2,3]
+                .cards__col.col-12.col-xs-4
+                    .cards__container
+                        +banner({ img: item })

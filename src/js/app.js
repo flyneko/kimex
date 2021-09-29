@@ -404,6 +404,16 @@ $(function () {
                 },
             }
         });
+
+        SwiperProxy($('.js-single-carousel'), {
+            dots: true,
+            nav: false,
+            slidesPerView: 1,
+            loop: true,
+            pagination: {
+                clickable: true
+            },
+        });
     })();
 
     $('.tab').on('click', function(e) {
@@ -653,7 +663,13 @@ $(function () {
             tabParent.next().addClass('submit-tab--active')
             tabParent.removeClass('submit-tab--active')
             tabParent.addClass('submit-tab--checked')
-        })
+        });
+
+        $('select[name="delivery_city"]').on('change', function() {
+            var isAlmaty = this.value == 'almaty';
+            $('.js-almaty-delivery')[isAlmaty ? 'removeClass' : 'addClass']('d-none');
+            $('.js-other-delivery')[isAlmaty ? 'addClass' : 'removeClass']('d-none');
+        });
     })();
 
 
@@ -678,6 +694,18 @@ $(function () {
         $('.mobile-dropdown__head').on('click', function(){
             $(this).parent().siblings().removeClass('mobile-dropdown__item--active')
             $(this).parent().toggleClass('mobile-dropdown__item--active')
+        });
+    })();
+
+    // select
+    (function() {
+        $('.js-select').select2({
+            width: '100%',
+            minimumResultsForSearch: -1,
+            dropdownAutoWidth : true,
+            inputAutoWidth : true,
+            selectionCssClass: 'custom-select__select',
+            dropdownCssClass: "custom-select__dropdown",
         });
     })();
 
@@ -879,7 +907,6 @@ $(function () {
         $(document).on('click', function(e) {
             var $target = $(e.target);
             if (!$target.closest('.js-product-share, .js-product-share-trigger').length && !$target.hasClass('js-product-share') && !$target.hasClass('js-product-share-trigger')){
-                e.preventDefault();
                 close();
             }
         });

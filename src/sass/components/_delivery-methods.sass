@@ -1,0 +1,57 @@
+.delivery-methods
+    margin-bottom: 30px
+    color: $more-black
+    &__head, &__row
+        display: flex
+        align-items: center
+    &__head
+        border-bottom: 1px solid $more-black
+        padding-bottom: 10px
+        margin-bottom: 20px
+        font-weight: 600
+        color: $more-black
+        font-size: 14px
+        +r($xs)
+            font-size: 13px
+    &__row
+        margin-bottom: 20px !important
+        display: flex !important
+        cursor: pointer
+        &:last-child
+            margin-bottom: 0
+        span.checkbox-style
+            +ivcenter
+        .label
+            position: static !important
+    &__icon
+        width: 80px
+        flex-shrink: 0
+        margin-right: 10px
+        +r(500)
+            display: none
+    &__body &__method
+        display: flex
+        align-items: center
+    &__method
+        width: 250px
+        position: relative 
+        +r($xs)
+            width: auto
+            flex-grow: 1
+        .icon
+            font-size: 30px
+    &__days
+        width: 150px
+        +r($xxs)
+            width: 100px
+            margin-right: 10px
+        +r($tiny)
+            width: 80px
+    &__price
+        flex-grow: 1
+        white-space: nowrap
+        +r($xs)
+            width: 100px
+            flex-grow: 0
+        +r($tiny)
+            width: 80px

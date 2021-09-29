@@ -1,0 +1,28 @@
+.home-banner
+    display: block
+    overflow: 
+    height: 100%
+    position: relative
+    overflow: hidden
+    &:hover &__i
+        width: calc(100% + 20px)
+        left: -20px
+    &--l &__i
+    background-position: left center
+    &--lt &__i
+        background-position: left top
+    &--t &__i
+        background-position: top center
+    &--rt &__i
+        background-position: right top
+    &__i
+        overflow: hidden
+        position: absolute
+        height: 100%
+        width: 100%
+        left: 0
+        top: 0
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+        transition: all ease .3s

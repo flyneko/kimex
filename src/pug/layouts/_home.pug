@@ -1,4 +1,4 @@
-extends layouts/_layout.pug
+extends _layout.pug
 block title 
     |    Главная
     
@@ -27,17 +27,11 @@ block content
     section.slider-auto-wrapper.slider.slider--have-cards
         .l-wrapper
             h3.subtitle новинки недели
-            include components/_slider-auto.pug
+            include ../components/_slider-auto.pug
     section.home-banners
         .l-wrapper
             .home-banners__inner
-                a.home-banners__imgwrapper(href='#')
-                    img(src='temp/index-banner-1.jpg' alt='')
-                .home-banners__smaller
-                    a.home-banners__imgwrapper(href='#')
-                        img(src='temp/index-banner-2.jpg' alt='')
-                    a.home-banners__imgwrapper(href='#')
-                        img(src='temp/index-banner-3.jpg' alt='')
+                block banners
     section.actually.slider.full-width
         .l-wrapper
             h3.subtitle актуальное
@@ -70,9 +64,9 @@ block content
             .tabs-container
                 each item in [1,2,3]
                     div(id="tab-" + item, class="tabs-content cataloge-wrapper slider slider-auto-wrapper" + (item == 1 ? ' tabs-content--active' : '')) 
-                        include components/_card-row.pug
-                        include components/_card-row.pug
-                        include components/_card-row.pug
+                        include ../components/_card-row.pug
+                        include ../components/_card-row.pug
+                        include ../components/_card-row.pug
                         //include components/_slider-auto.pug
     section.instagram.slider.full-width
         .l-wrapper

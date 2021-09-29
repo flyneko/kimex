@@ -10,9 +10,6 @@
 
 .home-banners__imgwrapper
     overflow: hidden
-    &:first-child + &:last-child
-        +rmin($sm)
-            margin-top: 32px
     img
         width: 100%
 
@@ -204,6 +201,7 @@
         margin-top: 0 !important
 
 .mini-cataloge
+    margin-bottom: 50px
     +r($sm)
         margin-bottom: 0 !important
 
@@ -263,6 +261,10 @@
 // чуть двигаем влево
 .cataloge-wrapper .card__discount, .cataloge-wrapper .card__new
     left: 5px
+
+.card__discount, .card__new
+    left: 10px
+    top: 10px
 
 .card__new
     display: block
@@ -346,3 +348,18 @@
 
 .partners__list
     flex-wrap: wrap
+    &--without
+        > li:first-child
+            margin-right: 0 !important
+
+.checkbox-absolute-label
+    position: absolute
+    top: 100%
+    +r($sm)
+        position: static
+
+
+textarea.input
+    line-height: 1.4
+    padding-top: 10px
+    padding-bottom: 10px

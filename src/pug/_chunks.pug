@@ -1,7 +1,7 @@
 include _mixins.pug
 
 mixin pay_partners(list, denisov = false)
-    ul.partners__list
+    ul(class="partners__list"+ (!denisov ? ' partners__list--without' : ''))
         if denisov
             li.partners__item
                 a.partners__link(href='#')
@@ -69,3 +69,7 @@ mixin card(index, options = {})
                 span.card__cart
                     +icon('cart')
                 span.card__quick(data-fancybox="", data-src="#fast-view") Быстрый просмотр
+
+mixin banner(options = {})
+    a.home-banner(href='#')
+        .home-banner__i(style="background-image: url(temp/index-banner-" + options.img + ".jpg)")

@@ -11,7 +11,33 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   margin-block-start: unset
   margin-block-end: unset
 
+
+.h4
+  font-size: 15px
+  margin-bottom: 15px
+  color: $more-black
+
 a
   text-decoration: none
   color: inherit
   display: inline-block
+
+.text
+  line-height: 1.8
+
+.list
+  li
+    position: relative
+    padding-left: 10px
+    margin-bottom: 10px
+    line-height: 1.4
+    &:last-child
+      margin-bottom: 0
+    &:before
+      position: absolute
+      content: ''
+      background: $style-color
+      width: 4px
+      height: 4px
+      left: 0
+      top: +em(8, 14)

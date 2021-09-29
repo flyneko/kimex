@@ -242,10 +242,12 @@
         .input{
             display: block;
             width: 100%;
-            margin-top: 5px;
+            margin-top: 0 !important;
         }
-        span{
+        > span:first-child {
             font-weight: 600;
+            display: inline-block;
+            margin-bottom: 5px;
         }
     }
 }

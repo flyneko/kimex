@@ -85,7 +85,7 @@
     }
     &--important{
         position: relative;
-        span{
+        > span:first-child{
             position: relative;
             &:before{
                 content: '*';
@@ -368,7 +368,7 @@
 }
 
 .select2{
-    width: unset !important;
+    //width: unset !important;
     &:hover{
         .selection{
             .select2-selection--single{

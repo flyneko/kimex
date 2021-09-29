@@ -71,27 +71,18 @@
 .home-banners{
     &__inner{
         margin: 0 0 80px;
-        display: flex;
     }
-    &__imgwrapper{
-        img{
-            height: 100%;
-        }
-    }
-    &__smaller{
-        margin-left: 32px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .banners__imgwrapper:first-child{
-            margin-bottom: 32px;
+    .cards__container {
+        height: 500px;
+        @include r($xs) {
+            height: 350px;
         }
     }
 }
 
 .actually{
     margin-bottom: 80px;
-    font-size: 16px;
+    font-size: 16px; 
     line-height: 16px;
     color: $text-main;
     font-weight: 600;
