@@ -28,7 +28,7 @@
 
     .slider--mini{
         .card{
-            width: calc(50% - 32px);
+            width: 100%;
         }
     }
 
@@ -184,8 +184,8 @@
     }
 
     .card-up__navigation{
-        max-width: 80px;
-        width: 100%;
+        width: 80px;
+        flex-shrink: 0;
         max-height: 488px;
         .swiper-slide{
             max-height: 110px;
@@ -198,8 +198,8 @@
 
     .card-up__big{
         max-width: unset;
-        height: auto;
-        max-height: 550px;
+        //height: auto;
+        //max-height: 550px;
         .swiper-slide{
             img{
                 max-height: 540px;

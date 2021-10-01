@@ -867,7 +867,7 @@ $(function () {
 
     // Fixed header
     (function() {
-        $('.js-header').each(function() {
+        $('.js-header:not(.header--fixed)').each(function() {
             var $header = $(this);
             var pos = $header.offset().top + $header.outerHeight();
             var $replace = $('<div>').insertBefore($header);

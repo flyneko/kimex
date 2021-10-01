@@ -13,6 +13,8 @@
         font-size: 14px
         +r($xs)
             font-size: 13px
+    &__head &__method
+        padding-left: 105px
     &__row
         margin-bottom: 20px !important
         display: flex !important
@@ -32,6 +34,8 @@
     &__body &__method
         display: flex
         align-items: center
+    &__method, &__days, &__price
+        text-align: center
     &__method
         width: 250px
         position: relative 
@@ -40,6 +44,8 @@
             flex-grow: 1
         .icon
             font-size: 30px
+        > span
+            flex-grow: 1
     &__days
         width: 150px
         +r($xxs)
@@ -48,10 +54,7 @@
         +r($tiny)
             width: 80px
     &__price
-        flex-grow: 1
+        width: 100px
         white-space: nowrap
-        +r($xs)
-            width: 100px
-            flex-grow: 0
         +r($tiny)
             width: 80px
