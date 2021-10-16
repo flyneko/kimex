@@ -5,7 +5,8 @@
         justify-content: space-between;
     }
     &__left{
-        min-width: 592px;
+        width: 600px;
+        flex-shrink: 0;
         .breadcrumbs{
             display: none;
         }
@@ -35,6 +36,9 @@
         max-height: 592px;
         margin-right: 16px;
         height: 100%;
+        width: 100%;
+        max-width: 105px;
+        flex-shrink: 0;
         .swiper-wrapper{
             min-height: 100%;
         }
@@ -42,7 +46,7 @@
             position: relative;
             box-sizing: border-box;
             display: flex;
-            padding: 10px;
+            //padding: 10px;
             img{
                 width: 100%;
                 height: 100%;
@@ -80,7 +84,7 @@
         max-height: 656px;
         height: 100%;
         border: 1px solid $anothergray;
-        max-width: 472px;
+        flex-grow: 1;
         .swiper-wrapper{
             align-items: center;
         }
