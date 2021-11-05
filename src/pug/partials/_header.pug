@@ -1,138 +1,139 @@
 include _header-mobile.pug
 
 div(class="header header--lined js-header" + (header_fixed ? ' header--fixed' : ''))
-    .header__top
-        .l-wrapper
-            .header__top-inner
-                .header__location-wrapper
-                  +icon('pin', 'icon-middle')
-                  select.header__location.select.select--language
-                    option(value='astana') Астана
-                    option(value='karaganda') Караганда
-                    option(value='pavlodar') Павлодар
-                .header__contact
-                  +icon('phone', 'icon-middle')
-                  a.hover-line.hover-line--thin(href='tel:+84954525622')
-                    | 8 495 452-56-22
-                  |  / 
-                  a.hover-line.hover-line--thin(href='tel:+88003580000')
-                    | 8 800 358-00-00
-    .header__middle
-        .l-wrapper
-            .header__middle-wrapper
-                nav.header__navigation
-                    ul.header__navigation-list
-                        li.header__navigation-item
-                            a.header__navigation-link.hover-line.header__navigation-link--active(href='#') женское
-                        li.header__navigation-item
-                            a.header__navigation-link.hover-line(href='#') мужское
-                        li.header__navigation-item
-                            a.header__navigation-link.hover-line(href='#') детское
-                a.logo(href='.')
-                    img(src='assets/img/logo.svg') 
-                .header__buttons
-                    .header__join
-                        +icon('join', 'icon-middle')
-                        if logged 
-                            | Алексей Заморин
-                        else
-                            a#login-trigger.hover-line.hover-line--thin.join-trigger(href="#", data-fancybox="", data-src='#join-modal')
-                                | Вход  
-                            |  / 
-                            a#register-trigger.hover-line.hover-line--thin.join-trigger(href="#", data-fancybox="", data-src='#join-modal')
-                                | Регистрация
-                    a.header__liked-btn(href='#')
-                        +icon('save', 'icon-middle')
-                        | 0
-                    a.header__basket-btn(href='#')
-                        +icon('cart', 'icon-middle')
-                        | 0
-    .header__bottom
-        .l-wrapper
-            .header__bottom-inner
-                nav.subnavigation.subnavigation--header
-                    ul.subnavigation__list
-                        li.subnavigation__item
-                            a.subnavigation__link.hover-line(href='#') НОВИНКИ
-                            .dropdown
-                                .dropdown__nav
-                                    .dropdown__catogories
-                                        span.dropdown__categories-title Одежда
-                                        div.simple-navigation
-                                            ul.simple-navigation__list
-                                                each val in ['Блузы и рубашки', 'Туники', 'Брюки', 'Спортивная одежда', 'Верхняя одежда', 'Джинсы', 'Комбинезоны', 'Костюмы', 'Жилеты', 'Пиджаки', 'Платья', 'Пляжная одежда', 'Трикотаж']
+    .header__inn.compensate-for-scrollbar
+        .header__top
+            .l-wrapper
+                .header__top-inner
+                    .header__location-wrapper 
+                        +icon('pin', 'icon-middle')
+                        select.header__location.select.select--language
+                            option(value='astana') Астана
+                            option(value='karaganda') Караганда
+                            option(value='pavlodar') Павлодар
+                    .header__contact 
+                        +icon('phone', 'icon-middle')
+                        a.hover-line.hover-line--thin(href='tel:+84954525622') 
+                            | 8 495 452-56-22
+                        |  / 
+                        a.hover-line.hover-line--thin(href='tel:+88003580000')
+                            | 8 800 358-00-00
+        .header__middle
+            .l-wrapper
+                .header__middle-wrapper
+                    nav.header__navigation
+                        ul.header__navigation-list
+                            li.header__navigation-item
+                                a.header__navigation-link.hover-line.header__navigation-link--active(href='#') женское
+                            li.header__navigation-item
+                                a.header__navigation-link.hover-line(href='#') мужское
+                            li.header__navigation-item
+                                a.header__navigation-link.hover-line(href='#') детское
+                    a.logo(href='.')
+                        img(src='assets/img/logo.svg') 
+                    .header__buttons
+                        .header__join
+                            +icon('join', 'icon-middle')
+                            if logged 
+                                | Алексей Заморин
+                            else
+                                a#login-trigger.hover-line.hover-line--thin.join-trigger(href="#", data-fancybox="", data-src='#join-modal')
+                                    | Вход  
+                                |  / 
+                                a#register-trigger.hover-line.hover-line--thin.join-trigger(href="#", data-fancybox="", data-src='#join-modal')
+                                    | Регистрация
+                        a.header__liked-btn(href='#')
+                            +icon('save', 'icon-middle')
+                            | 0
+                        a.header__basket-btn(href='#')
+                            +icon('cart', 'icon-middle')
+                            | 0
+        .header__bottom
+            .l-wrapper
+                .header__bottom-inner
+                    nav.subnavigation.subnavigation--header
+                        ul.subnavigation__list
+                            li.subnavigation__item
+                                a.subnavigation__link.hover-line(href='#') НОВИНКИ
+                                .dropdown
+                                    .dropdown__nav
+                                        .dropdown__catogories
+                                            span.dropdown__categories-title Одежда
+                                            div.simple-navigation
+                                                ul.simple-navigation__list
+                                                    each val in ['Блузы и рубашки', 'Туники', 'Брюки', 'Спортивная одежда', 'Верхняя одежда', 'Джинсы', 'Комбинезоны', 'Костюмы', 'Жилеты', 'Пиджаки', 'Платья', 'Пляжная одежда', 'Трикотаж']
+                                                        li.simple-navigation__item
+                                                            a.simple-navigation__link(href='#')=val 
+                                                ul.simple-navigation__list
+                                                    each val in ['Пляжная одежда', 'Трикотаж', 'Толстовки', 'Топы', 'Футболки', 'Шорты', 'Юбки', 'Боди', 'Рубашки']
+                                                        li.simple-navigation__item
+                                                            a.simple-navigation__link(href='#')=val 
                                                     li.simple-navigation__item
-                                                        a.simple-navigation__link(href='#')=val 
-                                            ul.simple-navigation__list
-                                                each val in ['Пляжная одежда', 'Трикотаж', 'Толстовки', 'Топы', 'Футболки', 'Шорты', 'Юбки', 'Боди', 'Рубашки']
+                                                        a.simple-navigation__link.link(href='#') Все категории
+                                        .dropdown__top-categories
+                                            span.dropdown__categories-title Топ бренды
+                                            .simple-navigation
+                                                ul.simple-navigation__list
+                                                    each val in ['BALENCIAGA', 'BALMAIN', 'BOTTEGA VENETA', 'BRUNELLO CUCINELLI', 'CELINE', 'DOLCE & GABBANA', 'ETRO', 'GUCCI', 'LOEWE', 'LORO PIANA', 'PHILIPP PLEIN']
+                                                        li.simple-navigation__item
+                                                            a.simple-navigation__link(href='#')=val 
                                                     li.simple-navigation__item
-                                                        a.simple-navigation__link(href='#')=val 
-                                                li.simple-navigation__item
-                                                    a.simple-navigation__link.link(href='#') Все категории
-                                    .dropdown__top-categories
-                                        span.dropdown__categories-title Топ бренды
-                                        .simple-navigation
-                                            ul.simple-navigation__list
-                                                each val in ['BALENCIAGA', 'BALMAIN', 'BOTTEGA VENETA', 'BRUNELLO CUCINELLI', 'CELINE', 'DOLCE & GABBANA', 'ETRO', 'GUCCI', 'LOEWE', 'LORO PIANA', 'PHILIPP PLEIN']
+                                                        a.simple-navigation__link.link(href='#') Все бренды
+                                    .dropdown__slider.slider
+                                        span.dropdown__categories-title SALE одежда
+                                        include ../components/_mini-slider.pug
+                            li.subnavigation__item
+                                a.subnavigation__link.hover-line(href='#') ДИЗАЙНЕРЫ
+                                .dropdown
+                                    .dropdown__nav
+                                        .dropdown__catogories
+                                            span.dropdown__categories-title Одежда
+                                            div.simple-navigation
+                                                ul.simple-navigation__list
+                                                    each val in ['Блузы и рубашки', 'Туники', 'Брюки', 'Спортивная одежда', 'Верхняя одежда', 'Джинсы', 'Комбинезоны', 'Костюмы', 'Жилеты', 'Пиджаки', 'Платья', 'Пляжная одежда', 'Трикотаж']
+                                                        li.simple-navigation__item
+                                                            a.simple-navigation__link(href='#')=val 
+                                                ul.simple-navigation__list
+                                                    each val in ['Пляжная одежда', 'Трикотаж', 'Толстовки', 'Топы', 'Футболки', 'Шорты', 'Юбки', 'Боди', 'Рубашки']
+                                                        li.simple-navigation__item
+                                                            a.simple-navigation__link(href='#')=val 
                                                     li.simple-navigation__item
-                                                        a.simple-navigation__link(href='#')=val 
-                                                li.simple-navigation__item
-                                                    a.simple-navigation__link.link(href='#') Все бренды
-                                .dropdown__slider.slider
-                                    span.dropdown__categories-title SALE одежда
-                                    include ../components/_mini-slider.pug
-                        li.subnavigation__item
-                            a.subnavigation__link.hover-line(href='#') ДИЗАЙНЕРЫ
-                            .dropdown
-                                .dropdown__nav
-                                    .dropdown__catogories
-                                        span.dropdown__categories-title Одежда
-                                        div.simple-navigation
-                                            ul.simple-navigation__list
-                                                each val in ['Блузы и рубашки', 'Туники', 'Брюки', 'Спортивная одежда', 'Верхняя одежда', 'Джинсы', 'Комбинезоны', 'Костюмы', 'Жилеты', 'Пиджаки', 'Платья', 'Пляжная одежда', 'Трикотаж']
+                                                        a.simple-navigation__link.link(href='#') Все категории
+                                        .dropdown__top-categories
+                                            span.dropdown__categories-title Топ бренды
+                                            .simple-navigation
+                                                ul.simple-navigation__list
+                                                    each val in ['BALENCIAGA', 'BALMAIN', 'BOTTEGA VENETA', 'BRUNELLO CUCINELLI', 'CELINE', 'DOLCE & GABBANA', 'ETRO', 'GUCCI', 'LOEWE', 'LORO PIANA', 'PHILIPP PLEIN']
+                                                        li.simple-navigation__item
+                                                            a.simple-navigation__link(href='#')=val 
                                                     li.simple-navigation__item
-                                                        a.simple-navigation__link(href='#')=val 
-                                            ul.simple-navigation__list
-                                                each val in ['Пляжная одежда', 'Трикотаж', 'Толстовки', 'Топы', 'Футболки', 'Шорты', 'Юбки', 'Боди', 'Рубашки']
-                                                    li.simple-navigation__item
-                                                        a.simple-navigation__link(href='#')=val 
-                                                li.simple-navigation__item
-                                                    a.simple-navigation__link.link(href='#') Все категории
-                                    .dropdown__top-categories
-                                        span.dropdown__categories-title Топ бренды
-                                        .simple-navigation
-                                            ul.simple-navigation__list
-                                                each val in ['BALENCIAGA', 'BALMAIN', 'BOTTEGA VENETA', 'BRUNELLO CUCINELLI', 'CELINE', 'DOLCE & GABBANA', 'ETRO', 'GUCCI', 'LOEWE', 'LORO PIANA', 'PHILIPP PLEIN']
-                                                    li.simple-navigation__item
-                                                        a.simple-navigation__link(href='#')=val 
-                                                li.simple-navigation__item
-                                                    a.simple-navigation__link.link(href='#') Все бренды
-                                .dropdown__slider.slider
-                                    span.dropdown__categories-title SALE одежда
-                                    include ../components/_mini-slider.pug
-                        li.subnavigation__item
-                            a.subnavigation__link.hover-line(href='#') ОДЕЖДА
-                        li.subnavigation__item
-                            a.subnavigation__link.hover-line(href='#') ОБУВЬ
-                        li.subnavigation__item
-                            a.subnavigation__link.hover-line(href='#') СУМКИ
-                        li.subnavigation__item
-                            a.subnavigation__link.hover-line(href='#') АКСЕССУАРЫ
-                        li.subnavigation__item
-                            a.subnavigation__link.hover-line(href='#') ПОДАРКИ
-                        li.subnavigation__item
-                            a.subnavigation__link.hover-line(href='#') SALE
-                .header__search-wrapper
-                    .header__search.input-wrapper.input-wrapper--search
-                        +icon('search', 'icon-middle')
-                        input.header__search-input.input.input--small(type='text' placeholder='Поиск')
-                    .header__searched
-                        include ../components/_card-search.pug
-                        include ../components/_card-search.pug
-                        include ../components/_card-search.pug
-                        include ../components/_card-search.pug
-                        a.btn.btn--white(href='#')
-                            | показать все товары 
-                            | (
-                            span 1245
-                            | )
+                                                        a.simple-navigation__link.link(href='#') Все бренды
+                                    .dropdown__slider.slider
+                                        span.dropdown__categories-title SALE одежда
+                                        include ../components/_mini-slider.pug
+                            li.subnavigation__item
+                                a.subnavigation__link.hover-line(href='#') ОДЕЖДА
+                            li.subnavigation__item
+                                a.subnavigation__link.hover-line(href='#') ОБУВЬ
+                            li.subnavigation__item
+                                a.subnavigation__link.hover-line(href='#') СУМКИ
+                            li.subnavigation__item
+                                a.subnavigation__link.hover-line(href='#') АКСЕССУАРЫ
+                            li.subnavigation__item
+                                a.subnavigation__link.hover-line(href='#') ПОДАРКИ
+                            li.subnavigation__item
+                                a.subnavigation__link.hover-line(href='#') SALE
+                    .header__search-wrapper
+                        .header__search.input-wrapper.input-wrapper--search
+                            +icon('search', 'icon-middle')
+                            input.header__search-input.input.input--small(type='text' placeholder='Поиск')
+                        .header__searched
+                            include ../components/_card-search.pug
+                            include ../components/_card-search.pug
+                            include ../components/_card-search.pug
+                            include ../components/_card-search.pug
+                            a.btn.btn--white(href='#')
+                                | показать все товары 
+                                | (
+                                span 1245
+                                | )
